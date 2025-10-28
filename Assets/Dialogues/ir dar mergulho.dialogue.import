@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://xqvjuwenxr2"
+path="res://.godot/imported/ir dar mergulho.dialogue-af040d0ad68571ab45f10ec80095d9e1.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/ir dar mergulho.dialogue"
+dest_files=["res://.godot/imported/ir dar mergulho.dialogue-af040d0ad68571ab45f10ec80095d9e1.tres"]
+
+[params]
+
+defaults=true

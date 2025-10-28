@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bj357wqwyka0q"]
+
+[ext_resource type="Script" uid="uid://ckdtoot83nlx3" path="res://Assets/Scripts/fish.gd" id="1_4y4e6"]
+[ext_resource type="Texture2D" uid="uid://byrv347ry3nnu" path="res://Assets/Sprites/ANIMAIS/ALBATROZ/Albatroz_1.png" id="2_4y4e6"]
+[ext_resource type="Texture2D" uid="uid://cql0i5nvlcipt" path="res://Assets/Sprites/ANIMAIS/ALBATROZ/Albatroz_2.png" id="3_0ct2h"]
+[ext_resource type="Texture2D" uid="uid://cfi6qaggr5to1" path="res://Assets/Sprites/ANIMAIS/ALBATROZ/Albatroz_3.png" id="4_eb3i5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyhfx"]
+radius = 19.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddb2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4y4e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0ct2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eb3i5")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="albatroz" type="Area2D"]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_4y4e6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lyhfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_ddb2c")
+animation = &"new_animation"

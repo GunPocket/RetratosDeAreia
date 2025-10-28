@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://da3l6bdk26ing"]
+
+[ext_resource type="Texture2D" uid="uid://bb66idr5m272h" path="res://Assets/Sprites/BGS/vitoria_raia.png" id="1_28gk8"]
+[ext_resource type="Script" uid="uid://bopgj0qkrl5ao" path="res://Assets/Scripts/avalraia.gd" id="1_74qwb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28gk8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74qwb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce6yu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Avalraia" type="Node2D"]
+script = ExtResource("1_74qwb")
+
+[node name="final raia" type="Sprite2D" parent="."]
+position = Vector2(576.2222, 324.00003)
+scale = Vector2(0.6000001, 0.6)
+texture = ExtResource("1_28gk8")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 1162.0
+offset_bottom = 657.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_28gk8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_74qwb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce6yu")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,13 @@
+~ start
+
+Teste: Olá!
+- Oi.
+	Teste: Oi! :)
+	=> END
+- Olá!
+	Teste: Não me imita >:(
+	=> END
+- Xau. => END
+
+
+=> END

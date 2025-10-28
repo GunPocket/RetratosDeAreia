@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq6w6ahyqr7sc"]
+
+[ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_l435q"]
+
+[sub_resource type="FontFile" id="FontFile_vsb4k"]
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
+font = SubResource("FontFile_vsb4k")
+font_size = 60
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.21568628)
+
+[node name="creditos" type="Control"]
+layout_mode = 3
+anchor_top = 0.017
+anchor_right = 1.1449653
+anchor_bottom = 1.2515432
+offset_top = -11.016001
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l435q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = -163.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06558165, 0.29325664, 0.4597081, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -308.5
+offset_top = -708.0
+offset_right = 138.5
+offset_bottom = -627.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CRÉDITOS"
+label_settings = SubResource("LabelSettings_lti8b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 215.0
+offset_right = 1007.0
+offset_bottom = 517.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Game Design: Heloise Sá e Sofia Ramos
+Programação: Daniel Isensee
+Arte: Artur Moreira e Nicole Young
+Sound Design: Heloise Sá e Sofia Ramos
+Assets sonoros: Benjamin Burnes e Pixabay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 45.0
+offset_right = 174.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 28
+text = "Voltar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

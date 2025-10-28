@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw63wjgw1jwg3"]
+
+[ext_resource type="PackedScene" uid="uid://bnytteyw54kqh" path="res://Assets/Scenes/player_mouse.tscn" id="1_14pyw"]
+[ext_resource type="PackedScene" uid="uid://knufyy7e8con" path="res://Assets/Scenes/camera.tscn" id="1_uc4qf"]
+[ext_resource type="Script" uid="uid://bpiia6n0xe4p5" path="res://Assets/Scripts/fish_spawner.gd" id="2_qvs3w"]
+
+[node name="Mar" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_uc4qf")]
+
+[node name="player_mouse" parent="." instance=ExtResource("1_14pyw")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(15, -2)
+
+[node name="Fish Spawner" type="Node" parent="."]
+script = ExtResource("2_qvs3w")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Control"]
+
+[node name="Label" type="Label" parent="Control/CanvasGroup"]
+offset_left = -534.0
+offset_top = -300.0
+offset_right = -494.0
+offset_bottom = -277.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FotoBarra" type="Node2D" parent="CanvasLayer"]

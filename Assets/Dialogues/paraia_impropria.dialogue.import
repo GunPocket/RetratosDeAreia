@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://btkmbrxhqgiyx"
+path="res://.godot/imported/paraia_impropria.dialogue-1bf5e8fc97a33024900177ad67a73589.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/paraia_impropria.dialogue"
+dest_files=["res://.godot/imported/paraia_impropria.dialogue-1bf5e8fc97a33024900177ad67a73589.tres"]
+
+[params]
+
+defaults=true

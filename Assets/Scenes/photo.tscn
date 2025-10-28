@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bikbl86j4irxl"]
+
+[ext_resource type="Script" uid="uid://bllqvl8wqehui" path="res://Assets/Scripts/photo.gd" id="1_il2cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y11xr"]
+size = Vector2(340, 187)
+
+[sub_resource type="ImageTexture" id="ImageTexture_il2cg"]
+
+[node name="Foto" type="Area2D"]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_il2cg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y11xr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.85, 0.85)
+texture = SubResource("ImageTexture_il2cg")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://knufyy7e8con"]
+
+[ext_resource type="Script" uid="uid://dh8pslsvqse3u" path="res://Assets/Scripts/camera.gd" id="1_djjcv"]
+[ext_resource type="Texture2D" uid="uid://crn2jungd62hm" path="res://Assets/Sprites/camera.png" id="2_1ds61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ds61"]
+size = Vector2(400, 220)
+
+[node name="Camera" type="Area2D"]
+script = ExtResource("1_djjcv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1ds61")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1ds61")

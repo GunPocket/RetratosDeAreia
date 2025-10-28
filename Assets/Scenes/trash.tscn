@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cha5rd0d7agmp"]
+
+[ext_resource type="Texture2D" uid="uid://iry2vexx2f3t" path="res://Assets/Sprites/Godot-Placeholder-Sprites-main/Diamond/Sprite-0001.png" id="1_afrth"]
+[ext_resource type="Script" uid="uid://b0hbnye7xgypf" path="res://Assets/Scripts/trash.gd" id="1_itvmu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afrth"]
+radius = 32.06244
+
+[node name="Lixo" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_itvmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_afrth")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_afrth")

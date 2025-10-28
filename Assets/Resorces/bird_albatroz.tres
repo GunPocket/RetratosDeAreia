@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://ceyp4ssvaa57h"]
+
+[ext_resource type="PackedScene" uid="uid://bj357wqwyka0q" path="res://Assets/Scenes/albatroz.tscn" id="1_abx3m"]
+[ext_resource type="Script" uid="uid://sls38jopt0u5" path="res://Assets/Scripts/fish_data.gd" id="2_6c3hd"]
+
+[resource]
+script = ExtResource("2_6c3hd")
+scene = ExtResource("1_abx3m")
+sprite_scale = 0.06
+metadata/_custom_type_script = "uid://sls38jopt0u5"

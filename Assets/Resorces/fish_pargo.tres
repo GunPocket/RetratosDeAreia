@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://bfllxk0d3vshh"]
+
+[ext_resource type="Script" uid="uid://sls38jopt0u5" path="res://Assets/Scripts/fish_data.gd" id="1_cfuux"]
+[ext_resource type="PackedScene" uid="uid://bw2x7jv4xjs2n" path="res://Assets/Scenes/pargo.tscn" id="1_ti8v8"]
+
+[resource]
+script = ExtResource("1_cfuux")
+scene = ExtResource("1_ti8v8")
+sprite_scale = 0.06
+metadata/_custom_type_script = "uid://sls38jopt0u5"

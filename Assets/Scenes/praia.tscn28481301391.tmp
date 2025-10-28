@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci7iphqa8a3b3"]
+
+[ext_resource type="Texture2D" uid="uid://by8138i2ksiw6" path="res://Assets/Sprites/BGS/cenario_costa.png" id="1_bni5x"]
+[ext_resource type="Script" uid="uid://dgd1slm5v3lp2" path="res://Assets/Scripts/trash_spawner.gd" id="3_bni5x"]
+[ext_resource type="PackedScene" uid="uid://kn1w63a3x6oy" path="res://Assets/Scenes/npc.tscn" id="3_xp57k"]
+[ext_resource type="PackedScene" uid="uid://bnytteyw54kqh" path="res://Assets/Scenes/player_mouse.tscn" id="4_bni5x"]
+[ext_resource type="Resource" uid="uid://btkmbrxhqgiyx" path="res://Assets/Dialogues/paraia_impropria.dialogue" id="4_s5tnr"]
+
+[node name="Praia" type="Node2D"]
+
+[node name="BGPRAIA" type="Sprite2D" parent="."]
+position = Vector2(14.111084, -2.5)
+scale = Vector2(0.59907407, 0.59907407)
+texture = ExtResource("1_bni5x")
+
+[node name="NPC" parent="." instance=ExtResource("3_xp57k")]
+position = Vector2(-398, 21)
+
+[node name="Trash Spawner" type="Node" parent="."]
+script = ExtResource("3_bni5x")
+min_distance = 45.0
+dialogo_inicial = ExtResource("4_s5tnr")
+
+[node name="Spawn area" type="Polygon2D" parent="Trash Spawner"]
+position = Vector2(330, -56)
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-194, -37, -58, 76, 219, 45, 231, 310, -541, 318, -440, 100, -471, -42)
+
+[node name="player_mouse" parent="." instance=ExtResource("4_bni5x")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(15, -2)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Control"]
+
+[node name="Label" type="Label" parent="Control/CanvasGroup"]
+offset_left = -520.0
+offset_top = -261.0
+offset_right = -480.0
+offset_bottom = -238.0
+
+[node name="HSlider" type="HSlider" parent="Control/CanvasGroup"]
+offset_left = -502.0
+offset_top = -287.0
+offset_right = -226.0
+offset_bottom = -271.0
+editable = false
+scrollable = false

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8f7npof31n60"]
+
+[ext_resource type="Texture2D" uid="uid://d4hqliywvn4ly" path="res://Assets/Sprites/Godot-Placeholder-Sprites-main/Square/Square-0001.png" id="2_jqnwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqnwc"]
+size = Vector2(40, 40)
+
+[node name="AlbumSlot" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jqnwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jqnwc")

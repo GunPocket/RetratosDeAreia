@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw2x7jv4xjs2n"]
+
+[ext_resource type="Script" uid="uid://ckdtoot83nlx3" path="res://Assets/Scripts/fish.gd" id="1_b1fie"]
+[ext_resource type="Texture2D" uid="uid://1iycrsh8inro" path="res://Assets/Sprites/ANIMAIS/PARGO/Pargo_1.PNG" id="2_qva6h"]
+[ext_resource type="Texture2D" uid="uid://bmftm2f16xwy6" path="res://Assets/Sprites/ANIMAIS/PARGO/Pargo_2.PNG" id="3_ky3ul"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyhfx"]
+radius = 19.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddb2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qva6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ky3ul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pargo" type="Area2D"]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_b1fie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lyhfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_ddb2c")
+frame_progress = 0.19421831

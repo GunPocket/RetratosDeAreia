@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://kn1w63a3x6oy"]
+
+[ext_resource type="Texture2D" uid="uid://7f2iejedimae" path="res://Assets/Sprites/Godot-Placeholder-Sprites-main/Rhombus/Rhombus-0001.png" id="1_8n6a7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a58h"]
+radius = 57.0
+height = 232.0
+
+[node name="NPC" type="Area2D"]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_8n6a7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7a58h")

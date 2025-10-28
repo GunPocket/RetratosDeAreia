@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5amxdibsmprj"]
+
+[ext_resource type="Script" uid="uid://ckdtoot83nlx3" path="res://Assets/Scripts/fish.gd" id="1_o6hcf"]
+[ext_resource type="Texture2D" uid="uid://dccob5ambg7gf" path="res://Assets/Sprites/ANIMAIS/RAIA MANTA/Raia 1.png" id="2_ykmrx"]
+[ext_resource type="Texture2D" uid="uid://di6sy1x48j7yy" path="res://Assets/Sprites/ANIMAIS/RAIA MANTA/Raia 2.png" id="3_8b2r4"]
+[ext_resource type="Texture2D" uid="uid://bod2bs73hlcqv" path="res://Assets/Sprites/ANIMAIS/RAIA MANTA/Raia 3.png" id="4_g4dgr"]
+[ext_resource type="Texture2D" uid="uid://bb1fraq6nu62v" path="res://Assets/Sprites/ANIMAIS/RAIA MANTA/Raia4.png" id="5_utxb6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyhfx"]
+radius = 19.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddb2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ykmrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8b2r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g4dgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_utxb6")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="arraia" type="Area2D"]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_o6hcf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lyhfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_ddb2c")
+animation = &"new_animation"

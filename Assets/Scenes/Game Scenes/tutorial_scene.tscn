@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://dup4sbarbp57o"]
+
+[ext_resource type="Script" uid="uid://jh1uujak166g" path="res://Assets/Scripts/tutorial_scene.gd" id="1_hw7x1"]
+[ext_resource type="Texture2D" uid="uid://2ed68cy8mk2p" path="res://Assets/Sprites/TABLE.png" id="2_v0uxi"]
+[ext_resource type="Texture2D" uid="uid://4318tnm7mxm8" path="res://Assets/Sprites/ALBUM.png" id="3_5duie"]
+[ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_b8lbn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_708fa"]
+bg_color = Color(0.14140594, 0.40836042, 0.6980625, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76aax"]
+bg_color = Color(0.24265495, 0.52533334, 0.77237314, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tjhu"]
+bg_color = Color(0.14117648, 0.40784314, 0.69803923, 1)
+
+[sub_resource type="Theme" id="Theme_577ft"]
+Button/styles/hover = SubResource("StyleBoxFlat_708fa")
+Button/styles/normal = SubResource("StyleBoxFlat_76aax")
+Button/styles/pressed = SubResource("StyleBoxFlat_3tjhu")
+
+[node name="Album" type="Node2D"]
+script = ExtResource("1_hw7x1")
+
+[node name="FUNDO MESA" type="Sprite2D" parent="."]
+position = Vector2(576.50006, 325.71875)
+scale = Vector2(0.5994792, 0.5994792)
+texture = ExtResource("2_v0uxi")
+
+[node name="ALBUM" type="Sprite2D" parent="."]
+position = Vector2(570, 302)
+scale = Vector2(1.1392157, 1.1392157)
+texture = ExtResource("3_5duie")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 902.27844
+offset_top = 553.0
+offset_right = 1116.0
+offset_bottom = 616.0
+theme = SubResource("Theme_577ft")
+theme_override_fonts/font = ExtResource("5_b8lbn")
+theme_override_font_sizes/font_size = 24
+text = "COMEÇAR"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = 210.0
+offset_right = 944.0
+offset_bottom = 557.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.3529412, 0.13725491, 0.14117648, 1)
+theme_override_fonts/normal_font = ExtResource("5_b8lbn")
+theme_override_font_sizes/normal_font_size = 30
+text = "Você deve ir à costa e falar com o Seu Chico Jangadeiro para ele lhe levar pro mar. Uma vez longe da praia, para tirar fotos basta um CLIQUE ESQUERDO. Quando quiser voltar para casa, basta falar com o Jangadeiro novamente."
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 165.0
+offset_top = 123.0
+offset_right = 982.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.3529412, 0.13725491, 0.14117648, 1)
+theme_override_fonts/font = ExtResource("5_b8lbn")
+theme_override_font_sizes/font_size = 30
+text = "Objetivo: Tire fotos para completar o álbum da vovó!
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

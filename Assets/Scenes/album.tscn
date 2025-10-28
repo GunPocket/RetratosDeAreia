@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkeyv333ocwpk"]
+
+[ext_resource type="Script" uid="uid://c64llfwwiu16o" path="res://Assets/Scripts/album_slot.gd" id="1_usikg"]
+[ext_resource type="PackedScene" uid="uid://c8f7npof31n60" path="res://Assets/Scenes/album_slot.tscn" id="2_usikg"]
+[ext_resource type="PackedScene" uid="uid://djvibnhpw0p7j" path="res://Assets/Scenes/Album graphic.tscn" id="3_60mkv"]
+
+[node name="Album slots" type="Node2D"]
+script = ExtResource("1_usikg")
+metadata/_edit_horizontal_guides_ = [79.0, 266.0, 174.0]
+metadata/_edit_vertical_guides_ = [383.0]
+
+[node name="AlbumSlot" parent="." instance=ExtResource("2_usikg")]
+position = Vector2(384, 167.5)
+
+[node name="AlbumSlot2" parent="." instance=ExtResource("2_usikg")]
+position = Vector2(756, 167.5)
+
+[node name="AlbumSlot3" parent="." instance=ExtResource("2_usikg")]
+position = Vector2(384, 404.5)
+
+[node name="AlbumSlot4" parent="." instance=ExtResource("2_usikg")]
+position = Vector2(756, 404.5)
+
+[node name="Album" parent="." instance=ExtResource("3_60mkv")]

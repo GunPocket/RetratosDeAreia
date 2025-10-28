@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://0mhvqnx2rkgi"]
+
+[ext_resource type="Script" uid="uid://dl4pvcww8vykv" path="res://Assets/Scripts/character move.gd" id="1_7dd06"]
+[ext_resource type="Texture2D" uid="uid://cel4n5u2ri2pu" path="res://icon.svg" id="2_38rej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dd06"]
+radius = 38.118237
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dd06"]
+size = Vector2(40, 40)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7dd06")
+
+[node name="Collider" type="Area2D" parent="."]
+collision_mask = 56
+
+[node name="CollisionDetector" type="CollisionShape2D" parent="Collider"]
+shape = SubResource("CircleShape2D_7dd06")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("2_38rej")
+
+[node name="BodyColliders" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7dd06")

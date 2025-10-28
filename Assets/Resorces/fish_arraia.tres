@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=3 format=3 uid="uid://cv8d6gf46cipw"]
+
+[ext_resource type="PackedScene" uid="uid://b5amxdibsmprj" path="res://Assets/Scenes/arraia.tscn" id="1_640t1"]
+[ext_resource type="Script" uid="uid://sls38jopt0u5" path="res://Assets/Scripts/fish_data.gd" id="2_mfkif"]
+
+[resource]
+script = ExtResource("2_mfkif")
+scene = ExtResource("1_640t1")
+sprite_scale = 0.06
+metadata/_custom_type_script = "uid://sls38jopt0u5"

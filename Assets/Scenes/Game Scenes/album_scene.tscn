@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://djx7vfi2cob70"]
+
+[ext_resource type="Script" uid="uid://ddnobthxkhpol" path="res://Assets/Scripts/album_controller.gd" id="2_7m7qb"]
+[ext_resource type="PackedScene" uid="uid://dkeyv333ocwpk" path="res://Assets/Scenes/album.tscn" id="3_wh45f"]
+[ext_resource type="PackedScene" uid="uid://bnytteyw54kqh" path="res://Assets/Scenes/player_mouse.tscn" id="4_w15wj"]
+
+[node name="Cena Album" type="Node2D"]
+
+[node name="Album" type="Node2D" parent="."]
+script = ExtResource("2_7m7qb")
+
+[node name="album slots" parent="Album" instance=ExtResource("3_wh45f")]
+z_index = -2
+
+[node name="player_mouse" parent="." instance=ExtResource("4_w15wj")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

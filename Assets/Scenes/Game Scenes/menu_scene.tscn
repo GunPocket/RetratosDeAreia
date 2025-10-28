@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj0rflaf0ndq4"]
+
+[ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://dq0pgpbjkvsan" path="res://Assets/Sprites/MENU/BG MENU.png" id="2_fjdk5"]
+[ext_resource type="AudioStream" uid="uid://cao030077btxv" path="res://Assets/SOUND/Musica_Tela_Inicial.mp3" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://crqs3ujhreba5" path="res://Assets/Sprites/MENU/logo Retratos de Areia.png" id="4_hnoqu"]
+[ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_hnoqu"]
+
+[sub_resource type="GDScript" id="GDScript_1rerr"]
+script/source = "extends Button
+"
+
+[node name="MENU" type="Control"]
+layout_mode = 3
+anchor_top = 0.017
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -11.016001
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rerr")
+metadata/_edit_use_anchors_ = true
+
+[node name="FUNDO" type="Sprite2D" parent="."]
+position = Vector2(575.94446, 324.59372)
+scale = Vector2(0.5989005, 0.59890044)
+texture = ExtResource("2_fjdk5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xhh6f")
+autoplay = true
+
+[node name="LOGO" type="Sprite2D" parent="."]
+position = Vector2(540, 248)
+scale = Vector2(0.31718752, 0.31718752)
+texture = ExtResource("4_hnoqu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = 188.0
+offset_right = 270.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Iniciar" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.2
+theme_override_fonts/font = ExtResource("5_hnoqu")
+theme_override_font_sizes/font_size = 28
+text = "INICIAR"
+
+[node name="Créditos" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.2
+theme_override_fonts/font = ExtResource("5_hnoqu")
+theme_override_font_sizes/font_size = 28
+text = "CRÉDITOS"
+script = SubResource("GDScript_1rerr")
+
+[node name="Sair" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.2
+theme_override_fonts/font = ExtResource("5_hnoqu")
+theme_override_font_sizes/font_size = 28
+text = "SAIR"
+
+[node name="NUVEM" type="Sprite2D" parent="."]
+position = Vector2(-551, 200)
+
+[connection signal="pressed" from="HBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="HBoxContainer/Créditos" to="." method="_on_créditos_pressed"]
+[connection signal="pressed" from="HBoxContainer/Sair" to="." method="_on_sair_pressed"]
