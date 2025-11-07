@@ -4,21 +4,18 @@ const BG_BAD = preload("uid://cyejr3ftltil2")
 const BG_GOOD = preload("uid://c0obh5bxgh4fc")
 
 @onready var background: Sprite2D = $"../background"
-
 @onready var spawn_area: Polygon2D = $"../Spawn Area"
 
 var current_animals: Array = []
 
 @export var max_animals := 10
 @export var min_distance := 32.0
-
 var animals_active := false
 
-# --- FishData ---
-const FISH_PARGO: FishData = preload("res://Assets/Resorces/fish_pargo.tres")
-const FISH_TARTARUGA: FishData = preload("res://Assets/Resorces/fish_tartaruga.tres")
-const BIRD_ALBATROZ: FishData = preload("res://Assets/Resorces/bird_albatroz.tres")
-const FISH_ARRAIA: FishData = preload("res://Assets/Resorces/fish_arraia.tres")
+const FISH_PARGO: PackedScene = preload("res://Assets/Scenes/pargo.tscn")
+const FISH_TARTARUGA: PackedScene = preload("res://Assets/Scenes/tartaruga.tscn")
+const BIRD_ALBATROZ: PackedScene = preload("res://Assets/Scenes/albatroz.tscn")
+const FISH_ARRAIA: PackedScene = preload("res://Assets/Scenes/arraia.tscn")
 
 var animals_per_day: Dictionary = {
 	1: [FISH_PARGO],
@@ -30,9 +27,9 @@ var animals_per_day: Dictionary = {
 func _ready():
 	_check_background()
 	_start_spawn_animals()
-	
+
 func _check_background() -> void:
-	if EventController.day >= 3:
+	if EventController.day <= 3:
 		background.texture = BG_BAD
 	else:
 		background.texture = BG_GOOD
@@ -41,28 +38,22 @@ func _start_spawn_animals() -> void:
 	animals_active = true
 	_update_fishes()
 
-# --- Spawn de peixes ---
 func _update_fishes():
 	var available_animals = animals_per_day.get(EventController.day)
 	while current_animals.size() < max_animals:
-		_spawn_peixe_random(available_animals)
+		_spawn_animal_random(available_animals)
 
-func _spawn_peixe_random(available_animals: Array):
+func _spawn_animal_random(available_animals: Array):
 	var pos = get_random_spawn_position()
-	var animal = available_animals[randi() % available_animals.size()]
-	spawn_peixe(animal, pos)
+	var animal_scene = available_animals[randi() % available_animals.size()]
+	spawn_animal(animal_scene, pos)
 
-func spawn_peixe(fish_data: FishData, position: Vector2):
-	var instance = fish_data.scene.instantiate()
+func spawn_animal(animal_scene: PackedScene, position: Vector2):
+	var instance = animal_scene.instantiate()
 	add_child(instance)
 	instance.global_position = position
-
-	# Aplica escala no AnimatedSprite2D da cena
-	var sprite = instance.get_node_or_null("AnimatedSprite2D")
-	if sprite:
-		sprite.scale = Vector2(fish_data.sprite_scale, fish_data.sprite_scale)
-
 	current_animals.append(instance)
+
 
 func get_random_spawn_position() -> Vector2:
 	var poly := spawn_area.polygon
@@ -76,11 +67,11 @@ func get_random_spawn_position() -> Vector2:
 		)
 		if Geometry2D.is_point_in_polygon(local_pos, poly):
 			var global_pos = spawn_area.to_global(local_pos)
-			if _posicao_valida(global_pos):
+			if _position_valid(global_pos):
 				return global_pos
 	return spawn_area.global_position
 
-func _posicao_valida(pos: Vector2) -> bool:
+func _position_valid(pos: Vector2) -> bool:
 	for animal in current_animals:
 		if not is_instance_valid(animal):
 			current_animals.erase(animal)

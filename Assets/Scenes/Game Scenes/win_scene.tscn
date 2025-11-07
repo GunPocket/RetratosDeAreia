@@ -17,6 +17,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Win" type="Node2D"]
+scale = Vector2(1.67, 1.67)
 script = ExtResource("1_tka7v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

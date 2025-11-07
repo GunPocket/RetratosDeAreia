@@ -24,6 +24,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_76aax")
 Button/styles/pressed = SubResource("StyleBoxFlat_3tjhu")
 
 [node name="Album" type="Node2D"]
+scale = Vector2(1.67, 1.67)
 script = ExtResource("1_hw7x1")
 
 [node name="FUNDO MESA" type="Sprite2D" parent="."]

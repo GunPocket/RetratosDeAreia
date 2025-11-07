@@ -7,6 +7,7 @@ extends Area2D
 @export var pos: Vector2 = Vector2.ZERO
 @export var fixed: bool = false
 @export var score: int = 0
+@export var animals: Array[int] = []
 
 func _ready() -> void:
 	add_to_group("foto")
@@ -28,22 +29,33 @@ func set_texture(tex: Texture2D) -> void:
 
 func get_texture() -> Texture2D:
 	return sprite.texture if sprite else null
+	
+func get_score() -> int:
+	return score
+
+func get_fixed() -> bool:
+	return fixed
+	
+func get_pos() -> Vector2:
+	return pos
+	
+func get_animals() -> Array[int]:
+	return animals
 
 func set_score(value: int) -> void:
 	score = value
 
-func get_score() -> int:
-	return score
-
 func set_fixed(value: bool) -> void:
 	fixed = value
-
-func get_fixed() -> bool:
-	return fixed
 
 func set_pos(value: Vector2) -> void:
 	pos = value
 	global_position = value
 
-func get_pos() -> Vector2:
-	return pos
+func set_animals(values: Array) -> void:
+	animals = []
+	for v in values:
+		if typeof(v) == TYPE_INT:
+			animals.append(v)
+		elif typeof(v) == TYPE_OBJECT and v is EventController.Animal:
+			animals.append(int(v))

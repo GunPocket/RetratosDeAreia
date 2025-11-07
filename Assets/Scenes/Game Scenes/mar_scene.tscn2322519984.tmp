@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bpiia6n0xe4p5" path="res://Assets/Scripts/fish_spawner.gd" id="2_qvs3w"]
 
 [node name="Mar" type="Node2D"]
-scale = Vector2(1.67, 1.67)
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(16.481533, -164.74998)
@@ -15,7 +14,6 @@ texture = ExtResource("1_eyy4x")
 
 [node name="Camera" parent="." instance=ExtResource("1_uc4qf")]
 unique_name_in_owner = true
-scale = Vector2(0.625, 0.625)
 
 [node name="player_mouse" parent="." instance=ExtResource("1_14pyw")]
 

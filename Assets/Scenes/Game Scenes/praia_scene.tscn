@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bnytteyw54kqh" path="res://Assets/Scenes/player_mouse.tscn" id="4_bni5x"]
 
 [node name="Praia" type="Node2D"]
+scale = Vector2(1.67, 1.67)
 
 [node name="BGPRAIA" type="Sprite2D" parent="."]
 position = Vector2(14.111084, -2.5)
@@ -20,9 +21,9 @@ script = ExtResource("3_bni5x")
 min_distance = 45.0
 
 [node name="Spawn area" type="Polygon2D" parent="Trash Spawner"]
-position = Vector2(330, -56)
+position = Vector2(232, -82)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-194, -37, -58, 76, 219, 45, 231, 310, -541, 318, -440, 100, -471, -42)
+polygon = PackedVector2Array(-112, -38, 61, 77, 677, 77, 642, 535, -625, 538, -436, 158, -471, -42)
 
 [node name="player_mouse" parent="." instance=ExtResource("4_bni5x")]
 

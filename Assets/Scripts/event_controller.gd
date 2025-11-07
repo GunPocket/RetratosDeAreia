@@ -5,25 +5,25 @@ signal trash_collected
 signal save_photos_signal
 
 enum State {DIALOGUE, TRASH, CAMERA, ALBUM}
+enum Animal {ALBATROZ, ARRAIA, PARGO, TARTARUGA, NONE}
 var current_state: State = State.TRASH
 var average_score
 var total_trash: int = 0
 
-var temp_photos: Array = []        # Fotos tiradas, ficam na pilha
-var saved_photos: Array = [null, null, null, null]  # Grid 2x2 do álbum
+var temp_photos: Array = []
+var saved_photos: Array = [null, null, null, null]
 var day: int = 1
 
 func _update_photos() -> void:
-	var total_score := 0
+	var total_score := calcular_score()
 	var count : float = 0
 	for f in saved_photos:
 		if f != null:
-			total_score += f.get("score", 0)
 			count += 1
 	if count > 0:
 		average_score = total_score / count
 
-func _save_photo(tex: ImageTexture, pos: Vector2, fixed: bool = false, score: int = -1) -> void:
+func _save_photo(tex: ImageTexture, pos: Vector2, fixed: bool = false, score: int = -1, animais: Array = []) -> void:
 	if tex == null:
 		return
 
@@ -37,7 +37,8 @@ func _save_photo(tex: ImageTexture, pos: Vector2, fixed: bool = false, score: in
 		"img_data": img_data,
 		"pos": pos,
 		"fixed": fixed,
-		"score": score
+		"score": score,
+		"animais": animais
 	}
 
 	if fixed:
@@ -79,15 +80,14 @@ func _get_photos() -> Array:
 		var img := Image.new()
 		img.load_png_from_buffer(f.get("img_data"))
 		tex.set_image(img)
-
 		result.append({
 			"tex": tex,
 			"pos": f.get("pos"),
 			"fixed": f.get("fixed"),
-			"score": f.get("score")
+			"score": f.get("score"),
+			"animals": f.get("animais", [])
 		})
-	return result
-	
+	return result	
 
 func _get_temp_photos() -> Array:
 	var result: Array = []
@@ -96,11 +96,11 @@ func _get_temp_photos() -> Array:
 		var img := Image.new()
 		img.load_png_from_buffer(f.get("img_data"))
 		tex.set_image(img)
-
 		result.append({
 			"tex": tex,
 			"pos": f.get("pos"),
 			"fixed": false,
-			"score": f.get("score")
+			"score": f.get("score"),
+			"animals": f.get("animais", [])
 		})
 	return result

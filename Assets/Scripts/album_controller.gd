@@ -14,10 +14,17 @@ var pilha_slots := [
 var pilha_index := 0
 
 var slot_indices := {
-	Vector2(384, 167.5): 0,  # (0,0)
-	Vector2(756, 167.5): 1,  # (1,0)
-	Vector2(384, 404.5): 2,  # (0,1)
-	Vector2(756, 404.5): 3   # (1,1)
+	Vector2(640, 280): 0,
+	Vector2(1260, 280): 1,
+	Vector2(640, 676): 2,
+	Vector2(1260, 676): 3
+}
+
+var slot_animals := {
+	Vector2(640, 280): EventController.Animal.PARGO,
+	Vector2(1260, 280): EventController.Animal.ALBATROZ,
+	Vector2(640, 676): EventController.Animal.TARTARUGA,
+	Vector2(1260, 676): EventController.Animal.ARRAIA
 }
 
 func _ready() -> void:
@@ -25,34 +32,48 @@ func _ready() -> void:
 	EventController.connect("save_photos_signal", Callable(self, "_salvar_fotos"))
 
 func _add_taken_photos() -> void:
-	var temp_photos = EventController._get_temp_photos()
+	var temp_photos: Array = EventController._get_temp_photos()
 	for f in temp_photos:
-		var tex: ImageTexture = f.get("tex")
-		var score: int = f.get("score", 0)
-		var pos: Vector2 = f.get("pos", Vector2.ZERO)
+		if typeof(f) == TYPE_DICTIONARY:
+			var tex: ImageTexture = f.get("tex", null)
+			var score: int = f.get("score", 0)
+			var pos: Vector2 = f.get("pos", Vector2.ZERO)
+			var animals_raw: Array = f.get("animals", [])
+			var animals: Array[EventController.Animal] = []
+			for a in animals_raw:
+				if typeof(a) == TYPE_INT:
+					animals.append(a as EventController.Animal)
 
-		var photo = preload("res://Assets/Scenes/photo.tscn").instantiate()
-		photo.set_texture(tex)
-		photo.set_score(score)
-		photo.set_fixed(false)
-		photo.set_pos(pos if pos != Vector2.ZERO else pilha_slots[pilha_index])
-		if pos == Vector2.ZERO:
-			pilha_index = (pilha_index + 1) % PILHA_SIZE
-		add_child(photo)
+			var photo = preload("res://Assets/Scenes/photo.tscn").instantiate()
+			photo.set_texture(tex)
+			photo.set_score(score)
+			photo.set_fixed(false)
+			photo.set_pos(pos if pos != Vector2.ZERO else pilha_slots[pilha_index])
+			photo.set_animals(animals)
 
-	var saved_photos = EventController._get_photos()
+			if pos == Vector2.ZERO:
+				pilha_index = (pilha_index + 1) % PILHA_SIZE
+			add_child(photo)
+
+	var saved_photos: Array = EventController._get_photos()
 	for f in saved_photos:
-		var tex: ImageTexture = f.get("tex")
-		var score: int = f.get("score", 0)
-		var pos: Vector2 = f.get("pos", Vector2.ZERO)
+		if typeof(f) == TYPE_DICTIONARY:
+			var tex: ImageTexture = f.get("tex", null)
+			var score: int = f.get("score", 0)
+			var pos: Vector2 = f.get("pos", Vector2.ZERO)
+			var animals_raw: Array = f.get("animals", [])
+			var animals: Array[EventController.Animal] = []
+			for a in animals_raw:
+				if typeof(a) == TYPE_INT:
+					animals.append(a as EventController.Animal)
 
-		var photo = preload("res://Assets/Scenes/photo.tscn").instantiate()
-		photo.set_texture(tex)
-		photo.set_score(score)
-		photo.set_fixed(true)
-		photo.set_pos(pos)
-		add_child(photo)
-
+			var photo = preload("res://Assets/Scenes/photo.tscn").instantiate()
+			photo.set_texture(tex)
+			photo.set_score(score)
+			photo.set_fixed(true)
+			photo.set_pos(pos)
+			photo.set_animals(animals)
+			add_child(photo)
 
 func _process(_delta: float) -> void:
 	if selected_photo:
@@ -84,7 +105,17 @@ func _tentar_soltar() -> void:
 		return
 
 	var slot = _get_slot_under_photo(selected_photo)
+
 	if slot:
+		var animais_da_foto = selected_photo.get_animals()
+		var esperado = slot_animals.get(slot.global_position, EventController.Animal.NONE)
+
+		if esperado == EventController.Animal.NONE or not esperado in animais_da_foto:
+			selected_photo.set_pos(selected_photo.get_pos())
+			selected_photo.set_fixed(false)
+			selected_photo = null
+			return
+
 		var fotos_no_slot = _get_fotos_overlapping(slot)
 		for f in fotos_no_slot:
 			if f != selected_photo:
@@ -102,15 +133,10 @@ func _tentar_soltar() -> void:
 					"img_data": sprite.texture.get_image().save_png_to_buffer(),
 					"pos": slot.global_position,
 					"fixed": true,
-					"score": selected_photo.get_score()
+					"score": selected_photo.get_score(),
+					"animals": selected_photo.get_animals()
 				}
 				EventController.emit_signal("save_photos_signal")
-
-				
-	elif selected_photo.get_fixed() == false:
-		var sprite = selected_photo.get_node_or_null("Sprite2D")
-		if sprite and sprite.texture:
-			EventController._save_photo(sprite.texture, selected_photo.get_pos(), false, selected_photo.get_score())
 
 	selected_photo = null
 
@@ -137,7 +163,7 @@ func _enviar_para_pilha_ciclica(foto: Area2D) -> void:
 
 	var sp = foto.get_node_or_null("Sprite2D")
 	if sp and sp.texture:
-		EventController._save_photo(sp.texture, nova_pos, false, foto.get_score())
+		EventController._save_photo(sp.texture, nova_pos, false, foto.get_score(), foto.get_animals())
 
 func _esta_sobre_slot(foto: Area2D, slot: Node2D) -> bool:
 	var foto_shape = foto.get_node_or_null("CollisionShape2D")
@@ -165,4 +191,4 @@ func _salvar_fotos() -> void:
 	for foto in get_tree().get_nodes_in_group("foto"):
 		var sp = foto.get_node_or_null("Sprite2D")
 		if sp and sp.texture:
-			EventController._save_photo(sp.texture, foto.get_pos(), foto.get_fixed(), foto.get_score())
+			EventController._save_photo(sp.texture, foto.get_pos(), foto.get_fixed(), foto.get_score(), foto.get_animals())

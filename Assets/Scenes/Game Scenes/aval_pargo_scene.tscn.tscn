@@ -13,6 +13,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="AvalPARGO" type="Node2D"]
+scale = Vector2(1.67, 1.67)
 script = ExtResource("1_8t2o7")
 
 [node name="PARGO FINAL" type="Sprite2D" parent="."]

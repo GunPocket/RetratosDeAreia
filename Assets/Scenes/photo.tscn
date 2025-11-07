@@ -8,6 +8,7 @@ size = Vector2(340, 187)
 [sub_resource type="ImageTexture" id="ImageTexture_il2cg"]
 
 [node name="Foto" type="Area2D"]
+scale = Vector2(1.67, 1.67)
 collision_layer = 64
 collision_mask = 64
 script = ExtResource("1_il2cg")

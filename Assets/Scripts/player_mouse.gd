@@ -4,10 +4,7 @@ extends Node2D
 @onready var album: Node2D = get_node_or_null("../Album")
 
 func _ready() -> void:
-	# Conecta sinais de diálogo
 	check_state()
-	DialogueManager.dialogue_started.connect(_on_dialogue_started)
-	DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
 
 func _input(event):
 	if event.is_action_pressed("mouse_clicks"):
@@ -49,20 +46,8 @@ func _check_click_collision(click_position: Vector2) -> void:
 					EventController.current_state = EventController.State.DIALOGUE
 					area.action()
 				return
-
-# --- DIALOGUE HANDLERS ---
-func _on_dialogue_started(_dialogue: DialogueResource) -> void:
-	#get_tree().paused = true
-	pass
-
-func _on_dialogue_finished(_dialogue: DialogueResource) -> void:
-	if not is_inside_tree():
-		return
-	get_tree().paused = false
-	check_state()
 	
 func check_state():
-	# Restaura estado
 	if camera != null:
 		EventController.current_state = EventController.State.CAMERA
 	elif album != null:

@@ -10,15 +10,16 @@ metadata/_edit_horizontal_guides_ = [79.0, 266.0, 174.0]
 metadata/_edit_vertical_guides_ = [383.0]
 
 [node name="AlbumSlot" parent="." instance=ExtResource("2_usikg")]
-position = Vector2(384, 167.5)
+position = Vector2(640, 280)
 
 [node name="AlbumSlot2" parent="." instance=ExtResource("2_usikg")]
-position = Vector2(756, 167.5)
+position = Vector2(1260, 280)
 
 [node name="AlbumSlot3" parent="." instance=ExtResource("2_usikg")]
-position = Vector2(384, 404.5)
+position = Vector2(640, 676)
 
 [node name="AlbumSlot4" parent="." instance=ExtResource("2_usikg")]
-position = Vector2(756, 404.5)
+position = Vector2(1260, 676)
 
 [node name="Album" parent="." instance=ExtResource("3_60mkv")]
+scale = Vector2(1.67, 1.67)

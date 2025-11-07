@@ -8,10 +8,21 @@ func _ready() -> void:
 
 func _update_butttons() -> void:
 	EventController._update_photos()
-	print("Average Score: {score}".format({"score": EventController.average_score}))
-	print("Photo count: {count}".format({"count": EventController.saved_photos.size()}))
-	if EventController.average_score == 3 && EventController.saved_photos.size() == 4:
+
+	var todos_preenchidos := true
+	for f in EventController.saved_photos:
+		if f == null:
+			todos_preenchidos = false
+			break
+			
+	EventController._update_photos()
+	
+	print(EventController.average_score)
+
+
+	if todos_preenchidos:
 		button_2.visible = true
+
 
 func _on_button_pressed() -> void:
 	if EventController.day < 4:
@@ -19,5 +30,5 @@ func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/praia_scene.tscn")
 
 func _on_button_2_pressed() -> void:	
-	get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/win_scene.tscn")
+	get_tree().change_scene_to_file("res:/print/Assets/Scenes/Game Scenes/win_scene.tscn")
 	

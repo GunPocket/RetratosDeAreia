@@ -13,6 +13,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="AvalALBATROZ" type="Node2D"]
+scale = Vector2(1.6698527, 1.6698527)
 script = ExtResource("1_25c1m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

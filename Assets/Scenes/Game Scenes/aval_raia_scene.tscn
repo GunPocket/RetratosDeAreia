@@ -13,6 +13,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Avalraia" type="Node2D"]
+scale = Vector2(1.67, 1.6743152)
 script = ExtResource("1_74qwb")
 
 [node name="final raia" type="Sprite2D" parent="."]

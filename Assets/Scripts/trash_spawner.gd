@@ -37,7 +37,7 @@ func _ready() -> void:
 		h_slider.max_value = 50
 		h_slider.value = EventController._get_total_trash()
 	if label:
-		label.text = "Preparando diálogo..."
+		label.text = "Tempo restante: %.1f s" % tempo_total
 
 	EventController.connect("trash_collected", Callable(self, "_on_trash_collected"))
 
@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 		countdown_timer -= delta
 		if label:
 			label.text = "Tempo restante: %.1f s" % countdown_timer
-		if countdown_timer <= 0:
+		if int(countdown_timer * 100) <= 0:
 			lixos_ativos = false
 			DialogueManager.show_dialogue_balloon(dialogo_final, "start")
 

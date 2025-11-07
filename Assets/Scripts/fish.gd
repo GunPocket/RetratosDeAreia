@@ -1,11 +1,12 @@
 extends Area2D
 
-
 @export var move_speed: float = 100.0
 @export var change_dir_time: float = 2.0
-var direction: Vector2 = Vector2.ZERO
+@export var sprite_scale: float = 1.0
+@export var animal_type: EventController.Animal
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D  # ajuste o caminho se necessário
+var direction: Vector2 = Vector2.ZERO
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	_mudar_direcao()
@@ -14,7 +15,7 @@ func _ready() -> void:
 func _mudar_direcao() -> void:
 	direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	if direction.x != 0:
-		sprite.flip_h = direction.x < 0 
+		sprite.flip_h = direction.x < 0
 
 func _mover_loop() -> void:
 	while true:
@@ -23,11 +24,10 @@ func _mover_loop() -> void:
 
 func _process(delta: float) -> void:
 	position += direction * move_speed * delta
-
-	if position.y < -100:
-		position.y = -100
+	if position.y < -150:
+		position.y = -150
 		if direction.y < 0:
 			direction.y = abs(direction.y)
 
 func _foto_peixe() -> void:
-	EventController.emit_signal("fish_collected")
+	EventController.emit_signal("fish_collected", animal_type)
