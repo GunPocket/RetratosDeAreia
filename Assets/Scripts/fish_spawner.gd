@@ -9,7 +9,6 @@ const BG_GOOD = preload("uid://c0obh5bxgh4fc")
 var current_animals: Array = []
 
 @export var max_animals := 10
-@export var min_distance := 32.0
 var animals_active := false
 
 const FISH_PARGO: PackedScene = preload("res://Assets/Scenes/pargo.tscn")
@@ -39,43 +38,50 @@ func _start_spawn_animals() -> void:
 	_update_fishes()
 
 func _update_fishes():
+	_clean_invalid_animals()
 	var available_animals = animals_per_day.get(EventController.day)
 	while current_animals.size() < max_animals:
 		_spawn_animal_random(available_animals)
 
 func _spawn_animal_random(available_animals: Array):
-	var pos = get_random_spawn_position()
+	var pos = _find_valid_spawn_position()
 	var animal_scene = available_animals[randi() % available_animals.size()]
 	spawn_animal(animal_scene, pos)
 
 func spawn_animal(animal_scene: PackedScene, position: Vector2):
 	var instance = animal_scene.instantiate()
-	add_child(instance)
 	instance.global_position = position
+	add_child(instance)
 	current_animals.append(instance)
 
-
-func get_random_spawn_position() -> Vector2:
+func _find_valid_spawn_position() -> Vector2:
 	var poly := spawn_area.polygon
-	var rect := Rect2(poly[0], Vector2.ZERO)
+
+	if poly.is_empty():
+		return get_viewport().get_visible_rect().size / 2
+
+	var min_x = INF
+	var max_x = -INF
+	var min_y = INF
+	var max_y = -INF
 	for p in poly:
-		rect = rect.expand(p)
-	for i in range(50):
+		min_x = min(min_x, p.x)
+		max_x = max(max_x, p.x)
+		min_y = min(min_y, p.y)
+		max_y = max(max_y, p.y)
+
+	for i in range(300):
 		var local_pos = Vector2(
-			randf_range(rect.position.x, rect.position.x + rect.size.x),
-			randf_range(rect.position.y, rect.position.y + rect.size.y)
+			randf_range(min_x, max_x),
+			randf_range(min_y, max_y)
 		)
 		if Geometry2D.is_point_in_polygon(local_pos, poly):
 			var global_pos = spawn_area.to_global(local_pos)
-			if _position_valid(global_pos):
-				return global_pos
-	return spawn_area.global_position
+			return global_pos
+	return get_viewport().get_visible_rect().size / 2
 
-func _position_valid(pos: Vector2) -> bool:
-	for animal in current_animals:
-		if not is_instance_valid(animal):
-			current_animals.erase(animal)
-			continue
-		if animal.global_position.distance_to(pos) < min_distance:
-			return false
-	return true
+func _clean_invalid_animals():
+	for i in range(current_animals.size() - 1, -1, -1):
+		var a = current_animals[i]
+		if not is_instance_valid(a):
+			current_animals.remove_at(i)
