@@ -10,15 +10,25 @@ var start_pos: Vector2
 var target_pos: Vector2
 var move_timer: float = 0.0
 var move_duration: float = 1.0
+var margin := 100.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
-	if global_position.y < -150:
-		global_position.y = -150
+	sprite.play("default")
+	sprite.frame = randi_range(0, sprite.sprite_frames.get_frame_count("default") - 1)
+
+	if animal_type == EventController.Animal.ALBATROZ:
+		var limite_superior := -150 - margin
+		if global_position.y > limite_superior:
+			global_position.y = limite_superior
+	else:
+		var limite_inferior := -150 + margin
+		if global_position.y < limite_inferior:
+			global_position.y = limite_inferior
+
 	start_pos = global_position
 	_iniciar_novo_movimento()
-
 
 func _process(delta: float) -> void:
 	if move_timer < move_duration:
@@ -39,6 +49,14 @@ func _iniciar_novo_movimento() -> void:
 	rand_dir = rand_dir.normalized()
 	var distance = move_speed * move_duration
 	target_pos = start_pos + rand_dir * distance
-	if target_pos.y < -150:
-		target_pos.y = -150
-	sprite.flip_h = rand_dir.x < 0
+
+	if animal_type == EventController.Animal.ALBATROZ:
+		var limite_superior := -150 - margin
+		if target_pos.y > limite_superior:
+			target_pos.y = limite_superior
+		sprite.flip_h = rand_dir.x > 0
+	else:
+		var limite_inferior := -150 + margin
+		if target_pos.y < limite_inferior:
+			target_pos.y = limite_inferior
+		sprite.flip_h = rand_dir.x < 0

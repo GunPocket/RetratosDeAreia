@@ -25,7 +25,7 @@ animations = [{
 "texture": ExtResource("5_utxb6")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -39,6 +39,5 @@ animal_type = 1
 shape = SubResource("CircleShape2D_lyhfx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.06, 0.06)
+scale = Vector2(0.16, 0.16)
 sprite_frames = SubResource("SpriteFrames_ddb2c")
-animation = &"new_animation"
