@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci7iphqa8a3b3"]
+[gd_scene load_steps=6 format=3 uid="uid://ci7iphqa8a3b3"]
 
+[ext_resource type="AudioStream" uid="uid://da0l3x77l1mk6" path="res://Assets/SOUND/Musica_Tela_de_Costa.mp3" id="1_8jl7m"]
 [ext_resource type="Texture2D" uid="uid://by8138i2ksiw6" path="res://Assets/Sprites/BGS/cenario_costa.png" id="1_bni5x"]
 [ext_resource type="Script" uid="uid://dgd1slm5v3lp2" path="res://Assets/Scripts/trash_spawner.gd" id="3_bni5x"]
 [ext_resource type="PackedScene" uid="uid://kn1w63a3x6oy" path="res://Assets/Scenes/npc.tscn" id="3_xp57k"]
@@ -7,6 +8,11 @@
 
 [node name="Praia" type="Node2D"]
 scale = Vector2(1.67, 1.67)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8jl7m")
+volume_db = -10.0
+autoplay = true
 
 [node name="BGPRAIA" type="Sprite2D" parent="."]
 position = Vector2(14.111084, -2.5)

@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw63wjgw1jwg3"]
+[gd_scene load_steps=6 format=3 uid="uid://cw63wjgw1jwg3"]
 
 [ext_resource type="PackedScene" uid="uid://bnytteyw54kqh" path="res://Assets/Scenes/player_mouse.tscn" id="1_14pyw"]
 [ext_resource type="Texture2D" uid="uid://cyejr3ftltil2" path="res://Assets/Sprites/BGS/cenario_altomar_ruim.png" id="1_eyy4x"]
+[ext_resource type="AudioStream" uid="uid://b1ayf5vrhjf1g" path="res://Assets/SOUND/Musica_Tela_de_Alto_Mar.mp3" id="1_qkuro"]
 [ext_resource type="PackedScene" uid="uid://knufyy7e8con" path="res://Assets/Scenes/camera.tscn" id="1_uc4qf"]
 [ext_resource type="Script" uid="uid://bpiia6n0xe4p5" path="res://Assets/Scripts/fish_spawner.gd" id="2_qvs3w"]
 
 [node name="Mar" type="Node2D"]
 scale = Vector2(1.67, 1.67)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_qkuro")
+volume_db = -10.0
+autoplay = true
+parameters/looping = false
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(16.481533, -164.74998)
