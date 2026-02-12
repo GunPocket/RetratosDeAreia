@@ -16,22 +16,25 @@ layout_mode = 3
 anchor_top = 0.017
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -11.016001
+offset_left = 43.0
+offset_top = 8.639999
+offset_right = 43.0
+offset_bottom = 19.656006
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.6689687, 1.6689687)
 script = ExtResource("1_1rerr")
 metadata/_edit_use_anchors_ = true
 
-[node name="FUNDO" type="Sprite2D" parent="."]
-position = Vector2(575.8047, 320.35114)
-scale = Vector2(0.5989005, 0.59890044)
-texture = ExtResource("2_fjdk5")
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xhh6f")
 volume_db = -20.0
 autoplay = true
+
+[node name="FUNDO" type="Sprite2D" parent="."]
+position = Vector2(575.8047, 320.35114)
+scale = Vector2(0.5989005, 0.59890044)
+texture = ExtResource("2_fjdk5")
 
 [node name="LOGO" type="Sprite2D" parent="."]
 position = Vector2(540, 248)
@@ -59,12 +62,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
 theme = ExtResource("5_10h88")
-text = "INICIAR"
+text = "Jogar"
 
 [node name="Créditos" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
+theme = ExtResource("5_10h88")
 theme_override_fonts/font = ExtResource("5_hnoqu")
 theme_override_font_sizes/font_size = 28
 text = "CRÉDITOS"
@@ -74,6 +78,7 @@ script = SubResource("GDScript_1rerr")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.2
+theme = ExtResource("5_10h88")
 theme_override_fonts/font = ExtResource("5_hnoqu")
 theme_override_font_sizes/font_size = 28
 text = "SAIR"
