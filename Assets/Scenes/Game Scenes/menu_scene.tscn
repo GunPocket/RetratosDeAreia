@@ -1,89 +1,82 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj0rflaf0ndq4"]
+[gd_scene format=3 uid="uid://cj0rflaf0ndq4"]
 
 [ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_1rerr"]
 [ext_resource type="Texture2D" uid="uid://dq0pgpbjkvsan" path="res://Assets/Sprites/MENU/BG MENU.png" id="2_fjdk5"]
 [ext_resource type="AudioStream" uid="uid://cao030077btxv" path="res://Assets/SOUND/Musica_Tela_Inicial.mp3" id="2_xhh6f"]
 [ext_resource type="Texture2D" uid="uid://crqs3ujhreba5" path="res://Assets/Sprites/MENU/logo Retratos de Areia.png" id="4_hnoqu"]
-[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/general_theme.tres" id="5_10h88"]
+[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="5_10h88"]
 [ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_hnoqu"]
 
 [sub_resource type="GDScript" id="GDScript_1rerr"]
 script/source = "extends Button
 "
 
-[node name="MENU" type="Control"]
+[node name="MENU" type="Control" unique_id=357871667]
 layout_mode = 3
-anchor_top = 0.017
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 43.0
-offset_top = 8.639999
-offset_right = 43.0
-offset_bottom = 19.656006
+anchor_right = 1.669
+anchor_bottom = 1.669
+offset_right = -1284.48
+offset_bottom = -722.52
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.6689687, 1.6689687)
 script = ExtResource("1_1rerr")
-metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=243494115]
 stream = ExtResource("2_xhh6f")
 volume_db = -20.0
 autoplay = true
 
-[node name="FUNDO" type="Sprite2D" parent="."]
+[node name="FUNDO" type="Sprite2D" parent="." unique_id=1486412846]
 position = Vector2(575.8047, 320.35114)
 scale = Vector2(0.5989005, 0.59890044)
 texture = ExtResource("2_fjdk5")
 
-[node name="LOGO" type="Sprite2D" parent="."]
-position = Vector2(540, 248)
+[node name="LOGO" type="Sprite2D" parent="." unique_id=1981044310]
+position = Vector2(303.18124, 316.363)
 scale = Vector2(0.31718752, 0.31718752)
 texture = ExtResource("4_hnoqu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=222773324]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.2
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -666.4055
-offset_top = -36.22516
-offset_right = -126.40552
-offset_bottom = 32.77484
+offset_left = -257.76996
+offset_top = -109.94648
+offset_right = 33.185974
+offset_bottom = -49.6651
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
+metadata/_edit_group_ = true
 
-[node name="Iniciar" type="Button" parent="HBoxContainer"]
+[node name="Iniciar" type="Button" parent="HBoxContainer" unique_id=524063280]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.2
 theme = ExtResource("5_10h88")
 text = "Jogar"
 
-[node name="Créditos" type="Button" parent="HBoxContainer"]
+[node name="Créditos" type="Button" parent="HBoxContainer" unique_id=539701237]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.2
 theme = ExtResource("5_10h88")
 theme_override_fonts/font = ExtResource("5_hnoqu")
 theme_override_font_sizes/font_size = 28
-text = "CRÉDITOS"
+text = "Créditos"
 script = SubResource("GDScript_1rerr")
 
-[node name="Sair" type="Button" parent="HBoxContainer"]
+[node name="Sair" type="Button" parent="HBoxContainer" unique_id=740072938]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.2
 theme = ExtResource("5_10h88")
 theme_override_fonts/font = ExtResource("5_hnoqu")
 theme_override_font_sizes/font_size = 28
-text = "SAIR"
+text = "Sair"
 
-[node name="NUVEM" type="Sprite2D" parent="."]
+[node name="NUVEM" type="Sprite2D" parent="." unique_id=958909081]
 position = Vector2(-551, 200)
 
 [connection signal="pressed" from="HBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]

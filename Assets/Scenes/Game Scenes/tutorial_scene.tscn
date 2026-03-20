@@ -1,26 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dup4sbarbp57o"]
+[gd_scene format=3 uid="uid://dup4sbarbp57o"]
 
 [ext_resource type="Script" uid="uid://jh1uujak166g" path="res://Assets/Scripts/tutorial_scene.gd" id="1_hw7x1"]
 [ext_resource type="Texture2D" uid="uid://2ed68cy8mk2p" path="res://Assets/Sprites/TABLE.png" id="2_v0uxi"]
 [ext_resource type="Texture2D" uid="uid://4318tnm7mxm8" path="res://Assets/Sprites/ALBUM.png" id="3_5duie"]
-[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/general_theme.tres" id="4_ssoru"]
+[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="4_ssoru"]
 [ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_b8lbn"]
 
-[node name="Album" type="Node2D"]
+[node name="Album" type="Node2D" unique_id=327499341]
 scale = Vector2(1.67, 1.67)
 script = ExtResource("1_hw7x1")
 
-[node name="FUNDO MESA" type="Sprite2D" parent="."]
+[node name="FUNDO MESA" type="Sprite2D" parent="." unique_id=487032634]
 position = Vector2(576.50006, 325.71875)
 scale = Vector2(0.5994792, 0.5994792)
 texture = ExtResource("2_v0uxi")
 
-[node name="ALBUM" type="Sprite2D" parent="."]
+[node name="ALBUM" type="Sprite2D" parent="." unique_id=1605292277]
 position = Vector2(570, 302)
 scale = Vector2(1.1392157, 1.1392157)
 texture = ExtResource("3_5duie")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1731288971]
 offset_left = 902.27844
 offset_top = 553.0
 offset_right = 1116.0
@@ -30,7 +30,7 @@ theme_override_fonts/font = ExtResource("5_b8lbn")
 theme_override_font_sizes/font_size = 24
 text = "COMEÇAR"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1435055689]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -53,7 +53,7 @@ Tire fotos usando CLIQUE ESQUERDO.
 Quando quiser voltar para casa avise Seu Chico."
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2106144100]
 offset_left = 165.0
 offset_top = 123.0
 offset_right = 982.0
