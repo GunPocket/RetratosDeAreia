@@ -5,8 +5,8 @@ extends Node
 @onready var spawn_area_polygon: Polygon2D = $"Spawn area"
 
 @export var min_distance := 32.0
-@export var max_lixos := 10
-@export var tempo_total := 15.0
+@export var max_lixos := 15
+@export var tempo_total := 10.0
 
 
 @export var dialogo_inicial = preload("uid://btkmbrxhqgiyx")
@@ -34,10 +34,10 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(self._on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(self._on_dialogue_ended)
 	if h_slider:
-		h_slider.max_value = 50
+		h_slider.max_value = 10
 		h_slider.value = EventController._get_total_trash()
 	if label:
-		label.text = "Tempo restante: %.1f s" % tempo_total
+		label.text = "Lixo recolhido: " + str(EventController._get_total_trash())
 
 	EventController.connect("trash_collected", Callable(self, "_on_trash_collected"))
 
@@ -45,7 +45,7 @@ func _ready() -> void:
 		DialogueManager.show_dialogue_balloon(dialogo_inicial, "start")
 	else:
 		iniciar_spawn_lixos()
-		iniciar_contagem_regressiva()
+		#iniciar_contagem_regressiva()
 
 func _on_dialogue_started(_resource: DialogueResource) -> void:
 	EventController.current_state = EventController.State.DIALOGUE
@@ -54,7 +54,7 @@ func _on_dialogue_ended(resource: DialogueResource) -> void:
 	if resource == dialogo_inicial:		
 		EventController.current_state = EventController.State.TRASH
 		iniciar_spawn_lixos()
-		iniciar_contagem_regressiva()
+		#iniciar_contagem_regressiva()
 	elif resource == dialogo_final:
 		get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/mar_scene.tscn")
 
@@ -62,18 +62,21 @@ func iniciar_spawn_lixos() -> void:
 	lixos_ativos = true
 	_atualizar_lixos()
 
-func iniciar_contagem_regressiva() -> void:
-	countdown_timer = tempo_total
-	lixos_ativos = true
+#func iniciar_contagem_regressiva() -> void:
+	#countdown_timer = tempo_total
+	#lixos_ativos = true
 
 func _process(delta: float) -> void:
-	if lixos_ativos and countdown_timer > 0:
-		countdown_timer -= delta
+	if lixos_ativos:
 		if label:
-			label.text = "Tempo restante: %.1f s" % countdown_timer
-		if int(countdown_timer * 100) <= 0:
+			label.text = "Lixo recolhido: " + str(EventController._get_total_trash())
+		if int(h_slider.value) >= 10:
+			if label:
+				label.text = "Isso aí! Coletamos tudo por hoje!"
 			lixos_ativos = false
+			EventController.total_trash = 0
 			DialogueManager.show_dialogue_balloon(dialogo_final, "start")
+
 
 func _atualizar_lixos():
 	if EventController.current_state == 0:

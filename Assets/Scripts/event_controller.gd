@@ -85,7 +85,7 @@ func _get_photos() -> Array:
 			"pos": f.get("pos"),
 			"fixed": f.get("fixed"),
 			"score": f.get("score"),
-			"animals": f.get("animais", [])
+			"animals": f.get("animals", [])
 		})
 	return result	
 

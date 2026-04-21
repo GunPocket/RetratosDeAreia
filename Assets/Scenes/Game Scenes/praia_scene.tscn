@@ -1,58 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci7iphqa8a3b3"]
+[gd_scene format=3 uid="uid://ci7iphqa8a3b3"]
 
 [ext_resource type="AudioStream" uid="uid://da0l3x77l1mk6" path="res://Assets/SOUND/Musica_Tela_de_Costa.mp3" id="1_8jl7m"]
 [ext_resource type="Texture2D" uid="uid://by8138i2ksiw6" path="res://Assets/Sprites/BGS/cenario_costa.png" id="1_bni5x"]
 [ext_resource type="Script" uid="uid://dgd1slm5v3lp2" path="res://Assets/Scripts/trash_spawner.gd" id="3_bni5x"]
 [ext_resource type="PackedScene" uid="uid://kn1w63a3x6oy" path="res://Assets/Scenes/npc.tscn" id="3_xp57k"]
 [ext_resource type="PackedScene" uid="uid://bnytteyw54kqh" path="res://Assets/Scenes/player_mouse.tscn" id="4_bni5x"]
+[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="6_lu2gh"]
 
-[node name="Praia" type="Node2D"]
+[node name="Praia" type="Node2D" unique_id=539361151]
 scale = Vector2(1.67, 1.67)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=867102043]
 stream = ExtResource("1_8jl7m")
 volume_db = -15.0
 autoplay = true
 parameters/looping = false
 
-[node name="BGPRAIA" type="Sprite2D" parent="."]
+[node name="BGPRAIA" type="Sprite2D" parent="." unique_id=973013161]
 position = Vector2(14.111084, -2.5)
 scale = Vector2(0.59907407, 0.59907407)
 texture = ExtResource("1_bni5x")
 
-[node name="NPC" parent="." instance=ExtResource("3_xp57k")]
+[node name="NPC" parent="." unique_id=1182944763 instance=ExtResource("3_xp57k")]
 position = Vector2(-398, 21)
 
-[node name="Trash Spawner" type="Node" parent="."]
+[node name="Trash Spawner" type="Node" parent="." unique_id=1408837224]
 script = ExtResource("3_bni5x")
 min_distance = 100.0
 max_lixos = 8
 
-[node name="Spawn area" type="Polygon2D" parent="Trash Spawner"]
+[node name="Spawn area" type="Polygon2D" parent="Trash Spawner" unique_id=581818862]
 position = Vector2(232, -82)
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-112, -38, 61, 77, 677, 77, 642, 535, -625, 538, -436, 158, -471, -42)
 
-[node name="player_mouse" parent="." instance=ExtResource("4_bni5x")]
+[node name="player_mouse" parent="." unique_id=962870995 instance=ExtResource("4_bni5x")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=751402419]
 position = Vector2(15, -2)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=93043679]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CanvasGroup" type="CanvasGroup" parent="Control"]
+[node name="CanvasGroup" type="CanvasGroup" parent="Control" unique_id=583606787]
 
-[node name="Label" type="Label" parent="Control/CanvasGroup"]
-offset_left = -520.0
+[node name="Label" type="Label" parent="Control/CanvasGroup" unique_id=1257479618]
+offset_left = -497.00598
 offset_top = -261.0
-offset_right = -480.0
-offset_bottom = -238.0
+offset_right = -238.92215
+offset_bottom = -162.0
+theme = ExtResource("6_lu2gh")
+theme_override_font_sizes/font_size = 24
+text = "Lixo Recolhido:"
 
-[node name="HSlider" type="HSlider" parent="Control/CanvasGroup"]
+[node name="HSlider" type="HSlider" parent="Control/CanvasGroup" unique_id=1695861380]
 offset_left = -502.0
 offset_top = -287.0
 offset_right = -226.0

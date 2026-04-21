@@ -45,12 +45,14 @@ grow_vertical = 2
 theme = ExtResource("4_ssoru")
 theme_override_colors/default_color = Color(0.3529412, 0.13725491, 0.14117648, 1)
 theme_override_fonts/normal_font = ExtResource("5_b8lbn")
-theme_override_font_sizes/normal_font_size = 30
-text = "Vá à costa e fale com Seu Chico Jangadeiro
-para que ele lhe leve pro mar.
-Tire fotos usando CLIQUE ESQUERDO.
+theme_override_font_sizes/normal_font_size = 28
+text = "
 
-Quando quiser voltar para casa avise Seu Chico."
+Fale com Seu Chico Jangadeiro para ir pro mar.
+Para voltar pra casa chame Seu Chico de novo.
+
+CLIQUE ESQUERDO -> Tirar Foto do animal
+ARRASTAR E SOLTAR -> Colocar foto no álbum"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=2106144100]
@@ -61,8 +63,9 @@ offset_bottom = 216.0
 theme = ExtResource("4_ssoru")
 theme_override_colors/font_color = Color(0.3529412, 0.13725491, 0.14117648, 1)
 theme_override_fonts/font = ExtResource("5_b8lbn")
-theme_override_font_sizes/font_size = 30
-text = "Objetivo: Tire fotos para completar o álbum da vovó!
+theme_override_font_sizes/font_size = 42
+text = "Tire fotos de animais marinhos para
+restaurar o álbum da vovó!
 "
 horizontal_alignment = 1
 

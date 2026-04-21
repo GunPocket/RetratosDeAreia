@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="RetratosDeAreia"
 run/main_scene="uid://cj0rflaf0ndq4"
 config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="uid://bt7a3j6ouh1ch"
 
 [autoload]
 
