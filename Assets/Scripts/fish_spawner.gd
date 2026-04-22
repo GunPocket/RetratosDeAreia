@@ -2,7 +2,7 @@ extends Node
 
 #const BG_TERRIBLE
 const BG_BAD = preload("uid://cyejr3ftltil2")
-const BG_GOOD = preload("uid://c0obh5bxgh4fc")
+const BG_GOOD = preload("res://Assets/Sprites/BGS/tchau seu chico.png")
 #const BG_PERFECT
 
 @onready var background: Sprite2D = $"../background"
@@ -30,10 +30,10 @@ func _ready():
 	_start_spawn_animals()
 
 func _check_background() -> void:
-	if EventController.day <= 3:
-		background.texture = BG_BAD
-	else:
-		background.texture = BG_GOOD
+	#if EventController.day <= 3:
+		#background.texture = BG_BAD
+	#else:
+		background.texture = BG_GOOD #god is good all the time
 
 func _start_spawn_animals() -> void:
 	animals_active = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5amxdibsmprj"]
+[gd_scene format=3 uid="uid://b5amxdibsmprj"]
 
 [ext_resource type="Script" uid="uid://ckdtoot83nlx3" path="res://Assets/Scripts/fish.gd" id="1_o6hcf"]
 [ext_resource type="Texture2D" uid="uid://dccob5ambg7gf" path="res://Assets/Sprites/ANIMAIS/RAIA MANTA/Raia 1.png" id="2_ykmrx"]
@@ -29,15 +29,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="arraia" type="Area2D"]
+[node name="arraia" type="Area2D" unique_id=1556865330]
 collision_layer = 32
 collision_mask = 32
 script = ExtResource("1_o6hcf")
 animal_type = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=334190234]
 shape = SubResource("CircleShape2D_lyhfx")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1791648776]
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ddb2c")
+speed_scale = 0.8

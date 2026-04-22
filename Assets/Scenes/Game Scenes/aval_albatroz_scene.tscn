@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqu8cdcbwuwh"]
+[gd_scene format=3 uid="uid://bqu8cdcbwuwh"]
 
 [ext_resource type="Script" uid="uid://dbf0o2xqetnxw" path="res://Assets/Scripts/avalalbatroz.gd" id="1_25c1m"]
 [ext_resource type="Texture2D" uid="uid://bdqkiwo42ymjo" path="res://Assets/Sprites/BGS/vitoria_albatroz.png" id="1_sbq3p"]
@@ -12,20 +12,25 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lif5v"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="AvalALBATROZ" type="Node2D"]
+[node name="AvalALBATROZ" type="Node2D" unique_id=1798882021]
 scale = Vector2(1.6698527, 1.6698527)
 script = ExtResource("1_25c1m")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=680129208]
 position = Vector2(575.5555, 323.49997)
 scale = Vector2(0.59907407, 0.59907407)
 texture = ExtResource("1_sbq3p")
 
-[node name="Button" type="Button" parent="."]
-offset_right = 1156.0
-offset_bottom = 651.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1841671749]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=757299589]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_sbq3p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_25c1m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lif5v")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

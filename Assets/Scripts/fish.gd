@@ -19,6 +19,7 @@ func _ready() -> void:
 	sprite.frame = randi_range(0, sprite.sprite_frames.get_frame_count("default") - 1)
 
 	if animal_type == EventController.Animal.ALBATROZ:
+		sprite_scale *= 2.0
 		var limite_superior := -150 - margin
 		if global_position.y > limite_superior:
 			global_position.y = limite_superior
@@ -51,6 +52,7 @@ func _iniciar_novo_movimento() -> void:
 	target_pos = start_pos + rand_dir * distance
 
 	if animal_type == EventController.Animal.ALBATROZ:
+		sprite_scale *= 2.0
 		var limite_superior := -150 - margin
 		if target_pos.y > limite_superior:
 			target_pos.y = limite_superior
