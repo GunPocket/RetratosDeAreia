@@ -5,6 +5,7 @@ extends Node2D
 @onready var foto_barra: Node2D = $"../CanvasLayer/FotoBarra"
 
 @export var max_fotos: int = 4
+@export var textureSizeMultiplier: float
 var fotos_tiradas: int = 0
 
 const FOTO_SCENE = preload("res://Assets/Scenes/photo.tscn")
@@ -29,7 +30,7 @@ func _atualizar_label(qtd: int) -> void:
 	label.text = "Fotos tiradas: %d/%d" % [qtd, max_fotos]
 
 func _mostrar_foto() -> void:
-	var tex = await _capturar_imagem()
+	var tex: = await _capturar_imagem()
 	var foto_instance = _criar_foto_instance(tex)
 
 	var resultados = _detectar_objetos_na_area()
@@ -57,7 +58,7 @@ func _capturar_imagem() -> ImageTexture:
 	var imgScale = Vector2( img.get_size() )/get_viewport_rect().size
 	var screen_pos: Vector2i = collision_shape_2d.get_global_transform_with_canvas().origin
 	var normalized_pos = Vector2( screen_pos ) / get_viewport_rect().size
-	var rect_size: Vector2 = (collision_shape_2d.shape.extents * 3.0) * imgScale
+	var rect_size: Vector2 = (collision_shape_2d.shape.extents * textureSizeMultiplier) * imgScale
 	var rect_pos: Vector2 = (Vector2( img.get_size() ) * normalized_pos) - (rect_size/2)
 	var rect: Rect2 = Rect2(rect_pos, rect_size)
 	if (rect.position.x + rect.size.x) > img.get_size().x: rect.position.x -= (rect.position.x + rect.size.x) - img.get_size().x

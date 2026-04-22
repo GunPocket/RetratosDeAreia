@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_l435q"]
 [ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="2_te05r"]
+[ext_resource type="AudioStream" uid="uid://d2dye30w0lfte" path="res://Assets/SOUND/ui-initial-game-click.wav" id="3_55iv5"]
+[ext_resource type="Script" uid="uid://b7ndwbsgek31i" path="res://Assets/Scripts/AudioSource.gd" id="3_wqk52"]
 
 [node name="creditos" type="Control" unique_id=1767321957]
 layout_mode = 3
@@ -80,4 +82,9 @@ theme = ExtResource("2_te05r")
 theme_override_font_sizes/font_size = 28
 text = "Voltar"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Click" type="Node" parent="." unique_id=1211414494]
+script = ExtResource("3_wqk52")
+stream = ExtResource("3_55iv5")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed" flags=3]
+[connection signal="pressed" from="Button" to="Click" method="Play"]

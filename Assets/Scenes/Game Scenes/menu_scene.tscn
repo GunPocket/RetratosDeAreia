@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_1rerr"]
 [ext_resource type="AudioStream" uid="uid://cao030077btxv" path="res://Assets/SOUND/Musica_Tela_Inicial.mp3" id="2_xhh6f"]
 [ext_resource type="AudioStream" uid="uid://c7edt2l5vulq" path="res://Assets/SOUND/ui-click.wav" id="3_3xpls"]
+[ext_resource type="Script" uid="uid://b7ndwbsgek31i" path="res://Assets/Scripts/AudioSource.gd" id="3_gfm4x"]
 [ext_resource type="Texture2D" uid="uid://ic5hde4v315v" path="res://Assets/Sprites/MENU/Ilustração_Sem_Título (1).png" id="3_ri5ro"]
 [ext_resource type="Texture2D" uid="uid://crqs3ujhreba5" path="res://Assets/Sprites/MENU/logo Retratos de Areia.png" id="4_hnoqu"]
 [ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="5_10h88"]
@@ -35,9 +36,9 @@ stream = ExtResource("2_xhh6f")
 volume_db = -20.0
 autoplay = true
 
-[node name="click" type="AudioStreamPlayer" parent="." unique_id=1580413409]
+[node name="Click" type="Node" parent="." unique_id=814318014]
+script = ExtResource("3_gfm4x")
 stream = ExtResource("3_3xpls")
-volume_db = -5.0
 
 [node name="FUNDO" type="Sprite2D" parent="." unique_id=1486412846]
 position = Vector2(575.8047, 320.35114)
@@ -111,5 +112,8 @@ theme_override_font_sizes/font_size = 28
 text = "Sair"
 
 [connection signal="pressed" from="HBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
-[connection signal="pressed" from="HBoxContainer/Créditos" to="." method="_on_créditos_pressed"]
-[connection signal="pressed" from="HBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="HBoxContainer/Iniciar" to="Click" method="Play"]
+[connection signal="pressed" from="HBoxContainer/Créditos" to="." method="_on_créditos_pressed" flags=3]
+[connection signal="pressed" from="HBoxContainer/Créditos" to="Click" method="Play"]
+[connection signal="pressed" from="HBoxContainer/Sair" to="." method="_on_sair_pressed" flags=3]
+[connection signal="pressed" from="HBoxContainer/Sair" to="Click" method="Play"]

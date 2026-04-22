@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://djvibnhpw0p7j"]
 
 [ext_resource type="Script" uid="uid://dfs1gmvcmrm4t" path="res://Assets/Scripts/album_graphic.gd" id="1_d2skb"]
+[ext_resource type="Script" uid="uid://b7ndwbsgek31i" path="res://Assets/Scripts/AudioSource.gd" id="2_7x53s"]
 [ext_resource type="Texture2D" uid="uid://2ed68cy8mk2p" path="res://Assets/Sprites/TABLE.png" id="2_rvtyu"]
 [ext_resource type="Texture2D" uid="uid://4318tnm7mxm8" path="res://Assets/Sprites/ALBUM.png" id="3_d2skb"]
+[ext_resource type="AudioStream" uid="uid://c7edt2l5vulq" path="res://Assets/SOUND/ui-click.wav" id="3_mapf6"]
 [ext_resource type="FontFile" uid="uid://cp001gx7x21iv" path="res://Assets/FONTS/PlaywriteITTradGuides-Regular.ttf" id="4_1g8rd"]
+[ext_resource type="AudioStream" uid="uid://d2dye30w0lfte" path="res://Assets/SOUND/ui-initial-game-click.wav" id="4_df8f7"]
 [ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="5_1g8rd"]
 [ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_d2skb"]
 
@@ -11,6 +14,14 @@
 
 [node name="Album" type="Node2D" unique_id=1962294311]
 script = ExtResource("1_d2skb")
+
+[node name="Click_0" type="Node" parent="." unique_id=1625299656]
+script = ExtResource("2_7x53s")
+stream = ExtResource("3_mapf6")
+
+[node name="Click_1" type="Node" parent="." unique_id=1412263879]
+script = ExtResource("2_7x53s")
+stream = ExtResource("4_df8f7")
 
 [node name="FUNDO MESA" type="Sprite2D" parent="." unique_id=1774664361]
 position = Vector2(576.50006, 325.71875)
@@ -155,4 +166,6 @@ theme_override_font_sizes/font_size = 24
 text = "ENTREGAR PRA VOVÓ"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Click_1" method="Play"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button2" to="Click_0" method="Play"]

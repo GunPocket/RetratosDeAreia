@@ -23,6 +23,7 @@ config/icon="uid://bt7a3j6ouh1ch"
 
 EventController="*res://Assets/Scripts/event_controller.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+AudioController="*uid://b0mk5h6ylhhvb"
 
 [display]
 

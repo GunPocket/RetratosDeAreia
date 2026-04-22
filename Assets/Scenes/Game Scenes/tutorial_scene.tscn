@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://4318tnm7mxm8" path="res://Assets/Sprites/ALBUM.png" id="3_5duie"]
 [ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="4_ssoru"]
 [ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_b8lbn"]
+[ext_resource type="Script" uid="uid://b7ndwbsgek31i" path="res://Assets/Scripts/AudioSource.gd" id="6_iony5"]
+[ext_resource type="AudioStream" uid="uid://d2dye30w0lfte" path="res://Assets/SOUND/ui-initial-game-click.wav" id="7_iikxd"]
 
 [node name="Album" type="Node2D" unique_id=327499341]
 scale = Vector2(1.67, 1.67)
@@ -71,4 +73,9 @@ restaurar o álbum da vovó!
 "
 horizontal_alignment = 1
 
+[node name="Click" type="Node" parent="." unique_id=920015483]
+script = ExtResource("6_iony5")
+stream = ExtResource("7_iikxd")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="Click" method="Play"]

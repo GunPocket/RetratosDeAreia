@@ -27,6 +27,7 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="Camera" parent="." unique_id=251104138 instance=ExtResource("1_uc4qf")]
 unique_name_in_owner = true
 scale = Vector2(0.625, 0.625)
+textureSizeMultiplier = 2.75
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=756299813]
 position = Vector2(15, -2)
@@ -55,6 +56,7 @@ theme_override_font_sizes/font_size = 32
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2002655677]
 
 [node name="FotoBarra" type="Node2D" parent="CanvasLayer" unique_id=146121359]
+position = Vector2(0, 50)
 
 [node name="Spawn Area" type="Polygon2D" parent="." unique_id=1990401494]
 position = Vector2(34, -106.000015)
