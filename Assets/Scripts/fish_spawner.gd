@@ -17,6 +17,8 @@ const FISH_PARGO: PackedScene = preload("res://Assets/Scenes/pargo.tscn")
 const FISH_TARTARUGA: PackedScene = preload("res://Assets/Scenes/tartaruga.tscn")
 const BIRD_ALBATROZ: PackedScene = preload("res://Assets/Scenes/albatroz.tscn")
 const FISH_ARRAIA: PackedScene = preload("res://Assets/Scenes/arraia.tscn")
+const FISH_TUBARAO: PackedScene = preload("res://Assets/Scenes/tubarao_serra.tscn")
+const FISH_ERMITAO: PackedScene = preload("res://Assets/Scenes/ermitao.tscn")
 
 var animals_per_day: Dictionary = {
 	1: [FISH_PARGO],

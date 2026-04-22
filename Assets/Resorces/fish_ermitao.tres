@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bbtsgmenmgt2v"]
+
+[ext_resource type="PackedScene" uid="uid://bq438h0ys8qqf" path="res://Assets/Scenes/ermitao.tscn" id="1_vl6qc"]
+[ext_resource type="Script" uid="uid://sls38jopt0u5" path="res://Assets/Scripts/fish_data.gd" id="2_6l066"]
+
+[resource]
+script = ExtResource("2_6l066")
+scene = ExtResource("1_vl6qc")
+metadata/_custom_type_script = "uid://sls38jopt0u5"

@@ -29,7 +29,7 @@ func _atualizar_label(qtd: int) -> void:
 	label.text = "Fotos tiradas: %d/%d" % [qtd, max_fotos]
 
 func _mostrar_foto() -> void:
-	var tex = _capturar_imagem()
+	var tex = await _capturar_imagem()
 	var foto_instance = _criar_foto_instance(tex)
 
 	var resultados = _detectar_objetos_na_area()
@@ -50,13 +50,14 @@ func _capturar_imagem() -> ImageTexture:
 			var shape = foto.get_node_or_null("CollisionShape2D")
 			if shape:
 				shape.disabled = true
+	visible = false
+	await RenderingServer.frame_post_draw
 
 	var img: Image = get_viewport().get_texture().get_image()
 	var imgScale = Vector2( img.get_size() )/get_viewport_rect().size
 	var screen_pos: Vector2i = collision_shape_2d.get_global_transform_with_canvas().origin
 	var normalized_pos = Vector2( screen_pos ) / get_viewport_rect().size
-	print( normalized_pos )
-	var rect_size: Vector2 = (collision_shape_2d.shape.extents * 2.0) * imgScale
+	var rect_size: Vector2 = (collision_shape_2d.shape.extents * 3.0) * imgScale
 	var rect_pos: Vector2 = (Vector2( img.get_size() ) * normalized_pos) - (rect_size/2)
 	var rect: Rect2 = Rect2(rect_pos, rect_size)
 	if (rect.position.x + rect.size.x) > img.get_size().x: rect.position.x -= (rect.position.x + rect.size.x) - img.get_size().x
@@ -65,6 +66,7 @@ func _capturar_imagem() -> ImageTexture:
 	if rect.position.y < 0: rect.position.y = 0
 	var recorte: Image = img.get_region(rect)
 	var tex = ImageTexture.create_from_image(recorte)
+	visible = true
 
 	for foto in fotos:
 		if foto != self:

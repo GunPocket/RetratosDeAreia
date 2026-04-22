@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bpjfjq3007i24"]
+
+[ext_resource type="Script" uid="uid://ckdtoot83nlx3" path="res://Assets/Scripts/fish.gd" id="1_f2628"]
+[ext_resource type="Texture2D" uid="uid://dt8afs1avcsxu" path="res://Assets/Sprites/ANIMAIS/TUBARAO/Tubarao.png" id="2_jillc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyhfx"]
+radius = 19.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqo7h"]
+atlas = ExtResource("2_jillc")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5r1u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqo7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arraia" type="Area2D" unique_id=1556865330]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_f2628")
+move_speed = -100.0
+animal_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=334190234]
+shape = SubResource("CircleShape2D_lyhfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1791648776]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_n5r1u")
+speed_scale = 0.8
+flip_h = true

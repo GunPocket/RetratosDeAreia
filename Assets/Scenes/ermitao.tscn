@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bq438h0ys8qqf"]
+
+[ext_resource type="Script" uid="uid://ckdtoot83nlx3" path="res://Assets/Scripts/fish.gd" id="1_favx1"]
+[ext_resource type="Texture2D" uid="uid://bgm4mh70unrh4" path="res://Assets/Sprites/ANIMAIS/ERMITAO/Ermitao_base.png" id="2_ocfve"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyhfx"]
+radius = 19.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cce3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ocfve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="arraia" type="Area2D" unique_id=1556865330]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_favx1")
+animal_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=334190234]
+shape = SubResource("CircleShape2D_lyhfx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1791648776]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_cce3y")
+speed_scale = 0.8

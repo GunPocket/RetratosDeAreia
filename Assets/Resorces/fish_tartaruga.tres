@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="FishData" format=3 uid="uid://cuxjdgjb4f80m"]
 
-[ext_resource type="PackedScene" uid="uid://imx6mc45bd3x" path="res://Assets/Scenes/tartaruga.tscn" id="1_on8co"]
+[ext_resource type="PackedScene" uid="uid://bpjfjq3007i24" path="res://Assets/Scenes/tubarao_serra.tscn" id="1_o1i02"]
 [ext_resource type="Script" uid="uid://sls38jopt0u5" path="res://Assets/Scripts/fish_data.gd" id="2_lg1ea"]
 
 [resource]
 script = ExtResource("2_lg1ea")
-scene = ExtResource("1_on8co")
+scene = ExtResource("1_o1i02")
 metadata/_custom_type_script = "uid://sls38jopt0u5"

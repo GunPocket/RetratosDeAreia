@@ -21,16 +21,18 @@ position = Vector2(16.481533, -164.74998)
 scale = Vector2(0.59969133, 0.59969133)
 texture = ExtResource("2_iga64")
 
+[node name="player_mouse" parent="." unique_id=1050106428 instance=ExtResource("1_14pyw")]
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="Camera" parent="." unique_id=251104138 instance=ExtResource("1_uc4qf")]
 unique_name_in_owner = true
 scale = Vector2(0.625, 0.625)
 
-[node name="player_mouse" parent="." unique_id=1050106428 instance=ExtResource("1_14pyw")]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=756299813]
 position = Vector2(15, -2)
+limit_enabled = false
 
-[node name="Fish Spawner" type="Node" parent="." unique_id=1166095600]
+[node name="Fish Spawner" type="Node2D" parent="." unique_id=1763134968]
 script = ExtResource("2_qvs3w")
 max_animals = 8
 
