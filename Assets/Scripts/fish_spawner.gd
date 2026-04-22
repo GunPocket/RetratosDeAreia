@@ -2,7 +2,7 @@ extends Node
 
 #const BG_TERRIBLE
 const BG_BAD = preload("uid://cyejr3ftltil2")
-const BG_GOOD = preload("res://Assets/Sprites/BGS/tchau seu chico.png")
+const BG_GOOD = preload("res://Assets/Sprites/BGS/newbg.png")
 #const BG_PERFECT
 
 @onready var background: Sprite2D = $"../background"

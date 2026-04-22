@@ -59,15 +59,12 @@ grow_vertical = 2
 theme = ExtResource("2_te05r")
 theme_override_colors/default_color = Color(0.95686275, 0.9411765, 0.8980392, 1)
 theme_override_font_sizes/normal_font_size = 48
-text = "Game Design: Heloise Sá e Sofia Ramos
-
-Programação: Daniel Isensee
-
-Arte: Artur Moreira e Nicole Young
-
-Sound Design: Heloise Sá e Sofia Ramos
-
-Assets sonoros: Benjamin Burnes e Pixabay"
+text = "Game Design: Heloise Sá e Sofia Nogueira
+Programação: Daniel Isensee e Haro Ukino
+Arte: Nicole Young, Artur Moreira e Jonathan Zarcenis
+Sound Design: Roberto Jr
+UI/UX: Pedro Oliveira e Heloise Sá
+Assets Sonoros: Benjamin Burnes, Pixabay e Roberto Jr"
 horizontal_alignment = 1
 vertical_alignment = 1
 
