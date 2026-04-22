@@ -4,7 +4,7 @@ extends Node2D
 @onready var label: Label = $"../Control/CanvasGroup/Label"
 @onready var foto_barra: Node2D = $"../CanvasLayer/FotoBarra"
 
-@export var max_fotos: int = 3
+@export var max_fotos: int = 4
 var fotos_tiradas: int = 0
 
 const FOTO_SCENE = preload("res://Assets/Scenes/photo.tscn")

@@ -21,10 +21,12 @@ scale = Vector2(1.1392157, 1.1392157)
 texture = ExtResource("3_5duie")
 
 [node name="Button" type="Button" parent="." unique_id=1731288971]
-offset_left = 902.27844
-offset_top = 553.0
-offset_right = 1116.0
-offset_bottom = 616.0
+custom_minimum_size = Vector2(240, 120)
+anchors_preset = -1
+offset_left = 880.0
+offset_top = 520.0
+offset_right = 1120.0
+offset_bottom = 600.0
 theme = ExtResource("4_ssoru")
 theme_override_fonts/font = ExtResource("5_b8lbn")
 theme_override_font_sizes/font_size = 24
@@ -46,18 +48,18 @@ theme = ExtResource("4_ssoru")
 theme_override_colors/default_color = Color(0.3529412, 0.13725491, 0.14117648, 1)
 theme_override_fonts/normal_font = ExtResource("5_b8lbn")
 theme_override_font_sizes/normal_font_size = 28
-text = "
-
-Fale com Seu Chico Jangadeiro para ir pro mar.
-Para voltar pra casa chame Seu Chico de novo.
+text = " 
+Novos animais vão surgindo a cada dia que passa.
+Depois é só encaixar cada foto no canto correto e entregar pra vovó!
 
 CLIQUE ESQUERDO -> Tirar Foto do animal
 ARRASTAR E SOLTAR -> Colocar foto no álbum"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=2106144100]
+anchors_preset = -1
 offset_left = 165.0
-offset_top = 123.0
+offset_top = 100.0
 offset_right = 982.0
 offset_bottom = 216.0
 theme = ExtResource("4_ssoru")

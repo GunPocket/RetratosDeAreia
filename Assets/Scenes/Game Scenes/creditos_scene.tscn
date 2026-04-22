@@ -1,31 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq6w6ahyqr7sc"]
+[gd_scene format=3 uid="uid://cq6w6ahyqr7sc"]
 
 [ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_l435q"]
+[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="2_te05r"]
 
-[sub_resource type="FontFile" id="FontFile_vsb4k"]
-cache/0/48/0/ascent = 0.0
-cache/0/48/0/descent = 0.0
-cache/0/48/0/underline_position = 0.0
-cache/0/48/0/underline_thickness = 0.0
-cache/0/48/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/60/0/ascent = 0.0
-cache/0/60/0/descent = 0.0
-cache/0/60/0/underline_position = 0.0
-cache/0/60/0/underline_thickness = 0.0
-cache/0/60/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
-font = SubResource("FontFile_vsb4k")
-font_size = 60
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.21568628)
-
-[node name="creditos" type="Control"]
+[node name="creditos" type="Control" unique_id=1767321957]
 layout_mode = 3
 anchor_top = 0.017
 anchor_right = 1.1449653
@@ -36,57 +14,69 @@ grow_vertical = 2
 scale = Vector2(0.9453088, 0.9453088)
 script = ExtResource("1_l435q")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=219448582]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = -163.0
-offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06558165, 0.29325664, 0.4597081, 1)
+color = Color(0.2627451, 0.15686275, 0.019607844, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=220893939]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.15
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -355.49432
-offset_top = -1121.479
-offset_right = 91.50574
-offset_bottom = -1040.479
+anchor_bottom = 0.15
+offset_left = -241.5
+offset_right = 241.5
+offset_bottom = 133.0
 grow_horizontal = 2
-grow_vertical = 0
+theme = ExtResource("2_te05r")
+theme_override_colors/font_color = Color(0.95686275, 0.9411765, 0.8980392, 1)
+theme_override_font_sizes/font_size = 96
 text = "CRÉDITOS"
-label_settings = SubResource("LabelSettings_lti8b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 553.25836
-offset_top = 389.2908
-offset_right = 1425.2583
-offset_bottom = 691.29083
-theme_override_font_sizes/normal_font_size = 40
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1056671019]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.99988
+offset_top = -329.03745
+offset_right = 435.99988
+offset_bottom = 329.03745
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_te05r")
+theme_override_colors/default_color = Color(0.95686275, 0.9411765, 0.8980392, 1)
+theme_override_font_sizes/normal_font_size = 48
 text = "Game Design: Heloise Sá e Sofia Ramos
+
 Programação: Daniel Isensee
+
 Arte: Artur Moreira e Nicole Young
+
 Sound Design: Heloise Sá e Sofia Ramos
+
 Assets sonoros: Benjamin Burnes e Pixabay"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
+[node name="Button" type="Button" parent="." unique_id=445086835]
+custom_minimum_size = Vector2(240, 120)
+layout_mode = 1
 offset_left = 46.0
 offset_top = 45.0
 offset_right = 174.0
 offset_bottom = 100.0
+theme = ExtResource("2_te05r")
 theme_override_font_sizes/font_size = 28
 text = "Voltar"
 

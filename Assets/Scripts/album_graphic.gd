@@ -27,8 +27,8 @@ func _update_butttons() -> void:
 func _on_button_pressed() -> void:
 	if EventController.day < 4:
 		EventController._next_day()
-	get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/praia_scene.tscn")
+	get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/mar_scene.tscn")
 
 func _on_button_2_pressed() -> void:	
-	get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/win_scene.tscn")
+	get_tree().change_scene_to_file("res://Assets/Scenes/Game Scenes/aval_pargo_scene.tscn.tscn")
 	

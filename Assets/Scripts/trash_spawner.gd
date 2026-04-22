@@ -24,10 +24,10 @@ const TRASH_SACO: TrashData = preload("res://Assets/Resorces/trash_saco.tres")
 const TRASH_REDE: TrashData = preload("res://Assets/Resorces/trash_rede.tres")
 
 var lixos_por_dia: Dictionary = {
-	1: [TRASH_PAPER, TRASH_CIGARRO],
+	4: [TRASH_PAPER],
+	3: [TRASH_PAPER, TRASH_CIGARRO],
 	2: [TRASH_PAPER, TRASH_CIGARRO, TRASH_GARRAFA],
-	3: [TRASH_PAPER, TRASH_CIGARRO, TRASH_GARRAFA, TRASH_SACO],
-	4: [TRASH_PAPER, TRASH_CIGARRO, TRASH_GARRAFA, TRASH_SACO, TRASH_REDE]
+	1: [TRASH_PAPER, TRASH_CIGARRO, TRASH_GARRAFA, TRASH_REDE]
 }
 
 func _ready() -> void:

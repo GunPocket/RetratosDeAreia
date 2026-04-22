@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://cj0rflaf0ndq4"]
 
 [ext_resource type="Script" uid="uid://cyrgwed5vxqgh" path="res://Assets/Scripts/menu.gd" id="1_1rerr"]
-[ext_resource type="Texture2D" uid="uid://dq0pgpbjkvsan" path="res://Assets/Sprites/MENU/BG MENU.png" id="2_fjdk5"]
 [ext_resource type="AudioStream" uid="uid://cao030077btxv" path="res://Assets/SOUND/Musica_Tela_Inicial.mp3" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://ic5hde4v315v" path="res://Assets/Sprites/MENU/Ilustração_Sem_Título (1).png" id="3_ri5ro"]
 [ext_resource type="Texture2D" uid="uid://crqs3ujhreba5" path="res://Assets/Sprites/MENU/logo Retratos de Areia.png" id="4_hnoqu"]
 [ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="5_10h88"]
 [ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_hnoqu"]
+[ext_resource type="Script" uid="uid://bt0768fta5ejo" path="res://Assets/Scripts/Movimentos Nuvem/nuvem_2.gd" id="7_82umt"]
+[ext_resource type="Texture2D" uid="uid://d1wiqwhpg0qgk" path="res://Assets/Sprites/LIXOS/LIXOS NORMAL/Nuvem_1.png" id="7_gkhpy"]
+[ext_resource type="Script" uid="uid://b363p0qxobgks" path="res://Assets/Scripts/Movimentos Nuvem/nuvem_1.gd" id="8_bl750"]
+[ext_resource type="Texture2D" uid="uid://dguhwywo3kcpg" path="res://Assets/Sprites/LIXOS/LIXOS NORMAL/Nuvem_2.png" id="9_82umt"]
+[ext_resource type="Script" uid="uid://dv7j81r1wk466" path="res://Assets/Scripts/Movimentos Nuvem/nuvem_3.gd" id="9_ri5ro"]
+[ext_resource type="Texture2D" uid="uid://b7vsdlmcxgqjf" path="res://Assets/Sprites/LIXOS/LIXOS NORMAL/Nuvem_3.png" id="10_ri5ro"]
+[ext_resource type="Script" uid="uid://ca2qt1t8cgf11" path="res://Assets/Scenes/logo.gd" id="11_ri5ro"]
 
 [sub_resource type="GDScript" id="GDScript_1rerr"]
 script/source = "extends Button
@@ -30,12 +37,31 @@ autoplay = true
 [node name="FUNDO" type="Sprite2D" parent="." unique_id=1486412846]
 position = Vector2(575.8047, 320.35114)
 scale = Vector2(0.5989005, 0.59890044)
-texture = ExtResource("2_fjdk5")
+texture = ExtResource("3_ri5ro")
+
+[node name="NUVEM 1" type="Sprite2D" parent="." unique_id=958909081]
+position = Vector2(578.20135, 321.75555)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_gkhpy")
+script = ExtResource("8_bl750")
+
+[node name="NUVEM 2" type="Sprite2D" parent="." unique_id=521793927]
+position = Vector2(576.4039, 314.56552)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_82umt")
+script = ExtResource("7_82umt")
+
+[node name="NUVEM 3" type="Sprite2D" parent="." unique_id=1229327665]
+position = Vector2(576.4039, 319.3589)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_ri5ro")
+script = ExtResource("9_ri5ro")
 
 [node name="LOGO" type="Sprite2D" parent="." unique_id=1981044310]
 position = Vector2(303.18124, 316.363)
 scale = Vector2(0.31718752, 0.31718752)
 texture = ExtResource("4_hnoqu")
+script = ExtResource("11_ri5ro")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=222773324]
 layout_mode = 1
@@ -56,12 +82,14 @@ metadata/_edit_group_ = true
 [node name="Iniciar" type="Button" parent="HBoxContainer" unique_id=524063280]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("5_10h88")
 text = "Jogar"
 
 [node name="Créditos" type="Button" parent="HBoxContainer" unique_id=539701237]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("5_10h88")
 theme_override_fonts/font = ExtResource("5_hnoqu")
 theme_override_font_sizes/font_size = 28
@@ -71,13 +99,11 @@ script = SubResource("GDScript_1rerr")
 [node name="Sair" type="Button" parent="HBoxContainer" unique_id=740072938]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("5_10h88")
 theme_override_fonts/font = ExtResource("5_hnoqu")
 theme_override_font_sizes/font_size = 28
 text = "Sair"
-
-[node name="NUVEM" type="Sprite2D" parent="." unique_id=958909081]
-position = Vector2(-551, 200)
 
 [connection signal="pressed" from="HBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="HBoxContainer/Créditos" to="." method="_on_créditos_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r54bbjgnxk3p"
-path="res://.godot/imported/NUVEM 2.png-3e7654f22608c1dafcd86d87a1c7d7e5.ctex"
+uid="uid://b7vsdlmcxgqjf"
+path="res://.godot/imported/Nuvem_3.png-9e393011fccf36120ad2d2c4ed00d9b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/LIXOS/LIXOS NORMAL/NUVEM 2.png"
-dest_files=["res://.godot/imported/NUVEM 2.png-3e7654f22608c1dafcd86d87a1c7d7e5.ctex"]
+source_file="res://Assets/Sprites/LIXOS/LIXOS NORMAL/Nuvem_3.png"
+dest_files=["res://.godot/imported/Nuvem_3.png-9e393011fccf36120ad2d2c4ed00d9b6.ctex"]
 
 [params]
 

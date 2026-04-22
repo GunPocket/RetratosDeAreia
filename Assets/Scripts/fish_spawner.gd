@@ -1,7 +1,9 @@
 extends Node
 
+#const BG_TERRIBLE
 const BG_BAD = preload("uid://cyejr3ftltil2")
 const BG_GOOD = preload("uid://c0obh5bxgh4fc")
+#const BG_PERFECT
 
 @onready var background: Sprite2D = $"../background"
 @onready var spawn_area: Polygon2D = $"../Spawn Area"

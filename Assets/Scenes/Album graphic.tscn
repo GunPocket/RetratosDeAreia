@@ -1,45 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://djvibnhpw0p7j"]
+[gd_scene format=3 uid="uid://djvibnhpw0p7j"]
 
 [ext_resource type="Script" uid="uid://dfs1gmvcmrm4t" path="res://Assets/Scripts/album_graphic.gd" id="1_d2skb"]
 [ext_resource type="Texture2D" uid="uid://2ed68cy8mk2p" path="res://Assets/Sprites/TABLE.png" id="2_rvtyu"]
 [ext_resource type="Texture2D" uid="uid://4318tnm7mxm8" path="res://Assets/Sprites/ALBUM.png" id="3_d2skb"]
 [ext_resource type="FontFile" uid="uid://cp001gx7x21iv" path="res://Assets/FONTS/PlaywriteITTradGuides-Regular.ttf" id="4_1g8rd"]
+[ext_resource type="Theme" uid="uid://dpjbugmi2m83t" path="res://Assets/Resorces/ui.tres" id="5_1g8rd"]
 [ext_resource type="FontFile" uid="uid://i7ebosbamfgb" path="res://Assets/FONTS/WalterTurncoat-Regular.ttf" id="5_d2skb"]
 
 [sub_resource type="Theme" id="Theme_fsql6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_708fa"]
-bg_color = Color(0.14140594, 0.40836042, 0.6980625, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76aax"]
-bg_color = Color(0.24265495, 0.52533334, 0.77237314, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tjhu"]
-bg_color = Color(0.14117648, 0.40784314, 0.69803923, 1)
-
-[sub_resource type="Theme" id="Theme_577ft"]
-Button/styles/hover = SubResource("StyleBoxFlat_708fa")
-Button/styles/normal = SubResource("StyleBoxFlat_76aax")
-Button/styles/pressed = SubResource("StyleBoxFlat_3tjhu")
-
-[node name="Album" type="Node2D"]
+[node name="Album" type="Node2D" unique_id=1962294311]
 script = ExtResource("1_d2skb")
 
-[node name="FUNDO MESA" type="Sprite2D" parent="."]
+[node name="FUNDO MESA" type="Sprite2D" parent="." unique_id=1774664361]
 position = Vector2(576.50006, 325.71875)
 scale = Vector2(0.5994792, 0.5994792)
 texture = ExtResource("2_rvtyu")
 
-[node name="ALBUM" type="Sprite2D" parent="."]
+[node name="ALBUM" type="Sprite2D" parent="." unique_id=362385300]
 position = Vector2(570, 302)
 scale = Vector2(1.1392157, 1.1392157)
 texture = ExtResource("3_d2skb")
 
-[node name="ESPAÇO PEIXE PARGO" type="ColorRect" parent="."]
+[node name="ESPAÇO PEIXE PARGO" type="ColorRect" parent="." unique_id=1735027379]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,7 +37,7 @@ grow_vertical = 2
 theme = SubResource("Theme_fsql6")
 color = Color(1, 1, 1, 0.43137255)
 
-[node name="PEIXE PARGO" type="Label" parent="ESPAÇO PEIXE PARGO"]
+[node name="PEIXE PARGO" type="Label" parent="ESPAÇO PEIXE PARGO" unique_id=816890055]
 layout_mode = 0
 offset_left = 87.0
 offset_top = 180.99998
@@ -66,7 +49,7 @@ theme_override_font_sizes/font_size = 24
 text = "Peixe Pargo"
 horizontal_alignment = 1
 
-[node name="ESPAÇO RAIA MANTA" type="ColorRect" parent="."]
+[node name="ESPAÇO RAIA MANTA" type="ColorRect" parent="." unique_id=1653402662]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -80,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.43137255)
 
-[node name="RAIA MANTA" type="Label" parent="ESPAÇO RAIA MANTA"]
+[node name="RAIA MANTA" type="Label" parent="ESPAÇO RAIA MANTA" unique_id=1184865836]
 layout_mode = 0
 offset_left = 94.0
 offset_top = 181.0
@@ -92,7 +75,7 @@ theme_override_font_sizes/font_size = 24
 text = "Raia Manta"
 horizontal_alignment = 1
 
-[node name="ESPAÇO TARTARUGA2" type="ColorRect" parent="."]
+[node name="ESPAÇO TARTARUGA2" type="ColorRect" parent="." unique_id=103372726]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,7 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.43137255)
 
-[node name="TARTARUGA" type="Label" parent="ESPAÇO TARTARUGA2"]
+[node name="TARTARUGA" type="Label" parent="ESPAÇO TARTARUGA2" unique_id=560386195]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 185.99997
@@ -118,7 +101,7 @@ theme_override_font_sizes/font_size = 24
 text = "Tartaruga Marinha"
 horizontal_alignment = 1
 
-[node name="ESPAÇO ALBATROZ" type="ColorRect" parent="."]
+[node name="ESPAÇO ALBATROZ" type="ColorRect" parent="." unique_id=1439531918]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -132,7 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.43137255)
 
-[node name="RAIA MANTA3" type="Label" parent="ESPAÇO ALBATROZ"]
+[node name="ALBATROZ" type="Label" parent="ESPAÇO ALBATROZ" unique_id=522273181]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 185.99997
@@ -144,25 +127,29 @@ theme_override_font_sizes/font_size = 24
 text = "Albatroz"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1584831084]
 z_index = 5
-offset_left = 900.0
-offset_top = 550.0
-offset_right = 1100.0
-offset_bottom = 614.0
-theme = SubResource("Theme_577ft")
+anchors_preset = -1
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1120.0
+offset_bottom = 600.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_1g8rd")
 theme_override_fonts/font = ExtResource("5_d2skb")
 theme_override_font_sizes/font_size = 24
 text = "PRÓXIMO DIA"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=1829895238]
 visible = false
 z_index = 5
-offset_left = 575.0
-offset_top = 550.0
-offset_right = 885.0
-offset_bottom = 614.0
-theme = SubResource("Theme_577ft")
+anchors_preset = -1
+offset_left = 680.0
+offset_top = 540.0
+offset_right = 880.0
+offset_bottom = 600.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("5_1g8rd")
 theme_override_fonts/font = ExtResource("5_d2skb")
 theme_override_font_sizes/font_size = 24
 text = "ENTREGAR PRA VOVÓ"
