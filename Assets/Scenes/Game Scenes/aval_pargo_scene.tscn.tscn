@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://bbekkuik4ftgs" path="res://Assets/Scripts/avalpargo.gd" id="1_8t2o7"]
 [ext_resource type="Texture2D" uid="uid://cdfxk8bbooblb" path="res://Assets/Sprites/BGS/vitoria_pargo.png" id="2_7w7te"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q61rk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpjrj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lj2xr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70isc"]
+
 [node name="AvalPARGO" type="Node2D" unique_id=346584407]
 scale = Vector2(1.67, 1.67)
 script = ExtResource("1_8t2o7")
@@ -12,7 +20,9 @@ position = Vector2(576.55554, 324.5)
 scale = Vector2(0.599074, 0.59907407)
 texture = ExtResource("2_7w7te")
 
-[node name="Button" type="Button" parent="." unique_id=804829795]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1907700535]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=804829795]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,5 +30,9 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q61rk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gpjrj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lj2xr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_70isc")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
