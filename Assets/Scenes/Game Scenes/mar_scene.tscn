@@ -27,8 +27,7 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="Camera" parent="." unique_id=251104138 instance=ExtResource("1_uc4qf")]
 unique_name_in_owner = true
 scale = Vector2(0.625, 0.625)
-textureSize = Vector2i(400, 225)
-textureSizeMultiplier = 2.0
+textureSizeMultiplier = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=756299813]
 position = Vector2(15, -2)
